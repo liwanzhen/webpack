@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Web Component</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<body>
+
+
+<script>
+    $(function(){
+
+        // 将阿拉伯数字转换成汉语
+        function convert(i) {
+            var r,n,x = 0,zero = i % 10 == 0;
+            var unit = ['','','十','百','千','万'];
+            var n2c = ['零','一','二','三','四','五','六','七','八','九'];
+            while (i > 0) {
+                x ++;
+                n = i % 10;
+                i = ~~(i /= 10);
+                if(n == 0 && i % 10 ===0) continue;
+                r = (r ? n2c[n] + (n ?unit[x] : '') + r: n2c[n]);
+            }
+            return console.log(zero ? r.substr(0,r.length - 1) : r);
+        }
+        convert(10000);    //一万
+        convert(101);    //一百零一
+        convert(10001);    //一万零一
+        convert(11111);    //一万一千一百一十一
+        convert(20876);    //二万零八百七十六
+
+    });
+
+
+</script>
+<script>
+$(function(){
+
+    // 递归算法
+    function mul(x) {
+        const result = (y) => mul(x * y);
+        //1.const是es6的新语法，用法基本和var一样，但是不能重复赋值;
+        //2.(y) => mul(x * y) 等同于 function(y) {return x * y;}
+        result.valueOf = () => x;
+        //1. () => x 等同于 function () { return x;}
+        //2. valueOf在这里是Object的一个方法，这个方法没有参数并返回了一个基本类型；在所有的取值过程都会被调用
+        return result;
+    }
+    console.log(mul(3));    //3
+    console.log(mul(3)(2));    //6
+});
+
+</script>
+</body>
