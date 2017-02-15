@@ -85,7 +85,7 @@
 
 
 	// module
-	exports.push([module.id, "body { background: yellow; }", ""]);
+	exports.push([module.id, "body { background: pink; }", ""]);
 
 	// exports
 
