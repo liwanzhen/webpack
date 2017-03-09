@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+
+*{padding:0;margin:0;list-style:none;}
+
+</style>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+</head>
+<body>
+<a href="#">第一条新闻</a>
+<a href="#">第二条新闻</a>
+<a href="#">第三条动态</a>
+
+<script>
+  $(function(){
+    $('a:first').siblings().hide();
+    setInterval(function(){
+      $('a:visible').slideUp('slow', function(){
+          $(this).next('a')[0] === undefined ? $('a:first').fadeIn("slow") : $(this).next('a').fadeIn("slow");
+      });
+    }, 1000*2)
+  });
+</script>
+
+</body>
+</html>

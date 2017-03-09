@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        table{
+            border:1px solid orange;
+        }
+
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>name</td>
+                <td>sex</td>
+                <td>age</td>
+                <td>option</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>miller</td>
+                <td>male</td>
+                <td>21</td>
+                <td><button class="del">delete</button></td>
+            </tr>
+            <tr>
+                <td>jack</td>
+                <td>male</td>
+                <td>22</td>
+                <td><button class="del">delete</button></td>
+            </tr>
+            <tr>
+                <td>ella</td>
+                <td>female</td>
+                <td>22</td>
+                <td><button class="del">delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script>
+    var btn = $('.del');
+    for (var i in btn) {
+        btn.eq(i).on('click',function(){
+            $(this).parents('tr').remove();
+        })
+    }
+</script>
+</html>

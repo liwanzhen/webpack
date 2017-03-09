@@ -1,0 +1,200 @@
+// 详情页
+
+extends _page.base
+
+block main
+	.container
+		.work-details
+			.work-head
+				span 作品
+				h3.work-name 作品名称
+			.bg-player
+				.player-bg
+					// 播放器
+					.player-screen
+						.bg-work(style="height:558px;")
+							canvas.viewport(width="1280",height="720",style="width:992px;height:558px;margin-left:0;margin-top:0")
+					.player-pane1
+						.switchers
+							// 开关
+							.switcher.sv
+								span.desc 声音开关
+								span.svBtn.circle.off off
+							.switcher.sa
+								span.desc 自动播放
+								span.svBtn.circle.off off
+							.switcher.sb
+								span.desc 弹幕
+								span.svBtn.circle.off on
+						.barrageSender
+							// 弹幕
+							input.barrageInput(type="text",placeholder="输入弹幕，最多25个字",maxlength="25")
+							button.barrageBtn 发送弹幕
+						.zan
+							span.icon.icon-thumbs-up
+							span.num 78794
+							.zan-clound(style="display:none;")
+								// 点赞弹出框
+								.zc-container
+									.zan-desc
+										.coin-num.pull-left
+											span 剩余32
+											i.icon-coin
+										.coin-desc
+											span 一次点赞要消耗一个
+											i.icon-coin
+									.zan-btn
+										span.enable(num="1") 1
+										span.enable(num="6") 6
+										span.enable(num="23") 23
+										span.enable(num="66") 66
+										span.enable(num="123") 123
+										span.enable(num="233") 233
+									.zan-tip
+										span.pull-left.zan-tip-hover
+										span.pull-right.zan-tip-click
+									.zc-cloud-buddle
+				.info-share.column.clearfix
+					ul.pull-left
+						// 创作者信息
+						li
+							a(href="")
+								img.user-img.img-circle
+						li
+							a.user-name(href="") 用户名
+						li
+							a(href="")
+								img(src="")
+							a(href="")
+								button.btn.btn-default LV24
+						li
+							button.btn.btn-default 关注
+					ul.work-share.pull-right
+						// 分享
+						li
+							span 播放2222次
+						li
+							span 收藏
+							a.user-keep.icon-star-empty(href="",data-versionid="")
+						li.share-btns(data-tag="share_1",data-bd-bind="")
+							span 分享
+							a.icon-qq(href="",target="_blank",onclick="qqShare()")
+							a.icon-wechat(href="",data-cmd="weixin",title="分享到微信")
+							a.icon-weibo(href="",data-cmd="tsina",title="分享到微博")
+							a.icon-qzone(href="",target="_blank",onclick="qzoneShare()")
+						li.task
+							a(href="") 任务
+							ul.task-pane1.dahao-task(style="display:none;")
+								// 登录、以验证
+								li
+									span.pull-left 每日任务
+									i.icon-close
+								li
+									span.pull-left 每日签到
+									button.pull-right.btn.btn-default 签到
+								li
+									span.pull-left 评论
+									span.pull-right 0/10
+								li
+									span.pull-left 分享
+									span.pull-right 2/2
+							ul.task-pane1.dahao-task-uncheck(style="display:none;")
+								// 登录未验证
+								li
+									span.pull-left 每日任务
+									i.icon-close
+								li
+									p （未验证用户，无法使用在线编辑器及每日任务，请完善注册信息。使用邮箱或手机注册即可完成验证）
+								li
+									a(href="") 现在去完善
+							ul.task-pane1.dahao-task-unlogin(style="display:none;")
+								// 未登录
+								li
+									a 请登录
+			.details-cont
+				.container
+					.row
+						.col-md-9
+							// 简介，评论
+							p.work-info 作品简介，干物妹小埋，16岁的完美高中生，在家里却是个超级懒的干物妹，喜欢喝可乐...
+							.recd.col-md-12.hidden-xs.hidden-sm
+								// 推荐
+								i.icon-laba
+								h3 为您推荐
+								.row
+									.col-xs-4
+										.work-img
+											a(href="",title="")
+												img.img-thumbnail(src="")
+										.captions
+											a(href="")
+												h3.title.ellipsis 我的作品
+											ul.data
+												li.pull-left
+													// 播放按钮
+													a(href="")
+														i.icon-play1
+														span 222
+												li.pull-right
+													// 留言按钮
+													a(href="")
+														i.icon-play1
+														span 333
+									.col-xs-4
+										.work-img
+											a(href="",title="")
+												img.img-thumbnail(src="")
+										.captions
+											a(href="")
+												h3.title.ellipsis 我的作品
+											ul.data
+												li.pull-left
+													// 播放按钮
+													a(href="")
+														i.icon-play1
+														span 222
+												li.pull-right
+													// 留言按钮
+													a(href="")
+														i.icon-play1
+														span 333
+									.col-xs-4
+										.work-img
+											a(href="",title="")
+												img.img-thumbnail(src="")
+										.captions
+											a(href="")
+												h3.title.ellipsis 我的作品
+											ul.data
+												li.pull-left
+													// 播放按钮
+													a(href="")
+														i.icon-play1
+														span 222
+												li.pull-right
+													// 留言按钮
+													a(href="")
+														i.icon-play1
+														span 333
+							.say
+								// 评论框
+								include _say
+							.dahao-comments
+								// 评论
+								i.icon-comt
+								h3 评论233
+								.discuss.column
+									ul.hot-discuss
+										li.new
+											a(href="") 有新评论，点击刷新⊙.⊙
+										li.new-comt
+										li
+											include _comments
+								.load-more
+									span(style="display:none") 没有更多了~
+									a.more-cont(href="")
+										span 查看更多⊙.⊙
+						.col-md-3.hidden-xs.hidden-sm
+							// 点赞排行榜，最近点赞
+							include _zan-widget
+							include _recent-zan

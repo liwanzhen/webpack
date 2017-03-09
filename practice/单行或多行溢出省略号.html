@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>多行省略号显示</title>
+<script rel="stylesheet" src="jquery-1.11.2.min.js"></script>
+<style type="text/css">
+div {
+	width: 300px;
+}
+.eclipsis {
+overflow: hidden;
+display: inline-block;
+text-overflow: ellipsis;
+white-space: nowrap;
+
+}
+
+p {
+    position:relative;
+    width: 300px;
+    line-height:1.4em;
+    height:4.2em;
+    overflow:hidden;
+}
+p::after {
+    content:"...";
+    position:absolute;
+    bottom:0;
+    right:0;
+    padding:0 5px 5px 40px;
+    background:url(http://css88.b0.upaiyun.com/css88/2014/09/ellipsis_bg.png) repeat-y;
+}
+</style>
+</head>
+<body>
+
+	<div class="eclipsis">单行单行单行单行单行单行单行单行单行单行单行单行</div>
+
+	<p>多行多行多行多行多行多行多行多行多行多行多行多行多行多行多行多行多行多行多行多行多行多行多行多行多行多行多行多行多行多行多行多行多行多行多行多行多行多行多行多行多行</p>
+
+
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Web Component</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<style>
+/* 方法一 */
+.one {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    background-color: #f90;
+}
+/* 方法二 */
+.one {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #f90;
+}
+/* 方法三 */
+    .three {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+    .three img {
+        width: 540px;
+        background-color: pink;
+    }
+
+/* table-cell应用 */
+.test {
+    display: table;
+    width: 100%;
+    height: 100px;
+}
+.cell {
+    display: table-cell;
+    background-color: pink;
+    width: 20%;
+    padding: 10px;
+}
+</style>
+</head>
+<body>
+<div class="three">
+    <img src="cat.jpg" alt="">
+</div>
+<div class="one"></div>
+<div class="test">
+    <div class="cell">举个例子吧</div>
+    <div class="cell">举个例子吧举个例子吧举个例子吧举个例子吧举个例子吧举个例子吧举个例子吧</div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell">举个例子吧举个例子吧举个例子吧举个例子吧举个例子吧举个例子吧举个例子吧举个例子吧举个例子吧举个例子吧举个例子吧举个例子吧举个例子吧举个例子吧举个例子吧举个例子吧举个例子吧举个例子吧举个例子吧举个例子吧举个例子吧举个例子吧举个例子吧举个例子吧举个例子吧举个例子吧举个例子吧举个例子吧</div>
+</div>
+
+</body>

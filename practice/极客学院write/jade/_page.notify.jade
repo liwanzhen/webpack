@@ -1,0 +1,166 @@
+// 个人中心类通知页
+
+extends _page.settings
+
+block main
+	.container.thumbnail
+			.row
+				block menu
+					// 左侧菜单
+					li
+							h3 我的消息箱
+						li.active
+							a(href="#letter",data-toggle="tab") 私信
+						li
+							a(href="#dynamic",data-toggle="tab") 好友动态
+						li
+							a(href="#atme",data-toggle="tab") @我的
+						li
+							a(href="#thumbs",data-toggle="tab") 给我的赞
+						li
+							a(href="#system-mes",data-toggle="tab") 系统消息
+				block content
+					// 右侧内容
+					section#myTabContent.col-xs-9.tab-content
+						#letter.tab-pane.active
+							block letter-content
+								// 私信
+								.media
+									.media-left
+										a.thumbnail(href="")
+											img.media-object.img-circle(src="")
+									a(href="")
+										.media-boby
+											.pull-left
+												a(href="")
+													h3 用户名
+												p
+												p 私信内容
+											.pull-right
+												span 1分钟前
+												spna 1
+								.media
+									.media-left
+										a.thumbnail(href="")
+											img.media-object.img-circle(src="")
+									a(href="")
+										.media-boby
+											.pull-left
+												a(href="")
+													h3 用户名
+												p
+												p 私信内容
+											.pull-right
+												span 1分钟前
+												spna 1
+								include _pages
+						#dynamic.tab-pane
+							// 好友动态
+							.media
+								.media-left
+									a.thumbnail(href="")
+										img.media-object.img-circle(src="")
+								a(href="")
+									.media-boby
+										.pull-left
+											a(href="")
+												h3 用户名
+											p
+											p 私信内容
+										.pull-right
+											span 1分钟前
+											spna 1
+							.media
+								.media-left
+									a.thumbnail(href="")
+										img.media-object.img-circle(src="")
+								a(href="")
+									.media-boby
+										.pull-left
+											a(href="")
+												h3 用户名
+											p
+											p 私信内容
+										.pull-right
+											span 1分钟前
+											spna 1
+							include _pages
+						#atme.tab-pane
+							// @我的
+							.media
+								.media-left
+									a.thumbnail(href="")
+										img.media-object.img-circle(src="")
+								a(href="")
+									.media-boby
+										.pull-left
+											a(href="")
+												h3 用户名
+											p
+											p 私信内容
+										.pull-right
+											span 1分钟前
+											spna 1
+							.media
+								.media-left
+									a.thumbnail(href="")
+										img.media-object.img-circle(src="")
+								a(href="")
+									.media-boby
+										.pull-left
+											a(href="")
+												h3 用户名
+											p
+											p 私信内容
+										.pull-right
+											span 1分钟前
+											spna 1
+							include _pages
+						#thumbs.tab-pane
+							// 给我的赞
+							.media
+								.media-left
+									a.thumbnail(href="")
+										img.media-object.img-circle(src="")
+								a(href="")
+									.media-boby
+										.pull-left
+											a(href="")
+												h3 用户名
+											p
+											p 私信内容
+										.pull-right
+											span 1分钟前
+											spna 1
+							.media
+								.media-left
+									a.thumbnail(href="")
+										img.media-object.img-circle(src="")
+								a(href="")
+									.media-boby
+										.pull-left
+											a(href="")
+												h3 用户名
+											p
+											p 私信内容
+										.pull-right
+											span 1分钟前
+											spna 1
+							include _pages
+						#system-mes.tab-pane
+							// 系统消息
+							ul
+								li
+									a(href="")
+										.row
+											p.col-xs-10 系统消息
+											span.col-xs-2 1钟前
+									span.pull-right 删除
+								li
+									a(href="")
+										.row
+											p.col-xs-10 系统消息
+											span.col-xs-2 1钟前
+									span.pull-right 删除
+							include _paging
+								// 分页

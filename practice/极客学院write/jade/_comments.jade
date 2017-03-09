@@ -1,0 +1,28 @@
+// 评论
+
+.media
+	.media-left
+		a.user-img(href="")
+			img.img-circle
+	.media-body
+		.media-heading
+			span #12
+			a.user-name(href="") 用户名
+			i.icon-level
+			span.user-level LV23
+			span.time.hint 评论时间
+		.discuss-content
+			ul.floor
+				li
+					.floor-hd
+						span.user-name 用户名
+						span 的评论
+					.floor-bd
+						p.comt-cont 楼中楼内容
+			p.comt-cont 评论内容
+		.handle
+			a(href="") 回复
+			a(href="",style="display:none").unlogin 请登录
+			.user-reply(style="display:none")
+				include _say
+

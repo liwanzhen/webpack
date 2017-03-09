@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>毛玻璃效果</title>
+		<style>
+			.blur {
+				fliter: url(blur.svg#blur); /* Firfox, Chrome, Opera */
+				-webkit-filter: blur(5px); /* Chrome, Opera */
+				   -moz-filter: blur(5px);
+				    -ms-filter: blur(5px);
+				        filter: blur(5px);
+				filter: progid:DXImageTransform.Microsoft.Blur(PixelRadiuus=5,MakeShadow=false); /* IE6-IE9 */
+			}
+			img {
+				width: 160px;
+				height: 140px;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="http://img0.bdstatic.com/img/image/shouye/xinshouye/mingixng204.jpg" alt="">
+		<img src="http://img0.bdstatic.com/img/image/shouye/xinshouye/mingixng204.jpg" alt="" class="blur">
+	</body>
+</html>

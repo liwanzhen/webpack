@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>手写modal</title>
+		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+		<script type="text/javascript" src="js/modal.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/modal.css">
+	</head>
+	<body>
+		<div>
+			<a href="#mymodal" class="btn">点击弹出模态框</a>
+		</div>
+
+
+		<div class="login" id="mymodal">
+			<div class="login-title">登录
+				<span>
+					<a href="#" class="close-login">
+						&times;
+					</a>
+				</span>
+			</div>
+
+			<div class="login-input-content">
+				<div class="login-input">
+					<!-- <label >用户名：</label> -->
+					<input type="text" placeholder="请输入用户名" name="info[username]" id="username" class="list-input"/>
+
+				</div>
+				<div class="login-input">
+					<!-- <label>登录密码：</label> -->
+					<input type="password" placeholder="请输入登录密码" name="info[password]" id="password" class="list-input" />
+				</div>
+
+				<span class="login-alert" />&nbsp;</span>
+				<a class="login-que" href="#" />忘记密码</a>
+
+			</div>
+			<div class="login-button">
+				<a href="#" id="login-submit">登录</a>
+				<a href="#" id="login-zhuce">注册</a>
+			</div>
+		</div>
+		<div class="login-bg"></div>
+	</body>
+</html>

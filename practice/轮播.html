@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>首页 - 大好网站</title>
+        <link rel="dahao-icon" href="#" title="dahao">
+        <link rel="stylesheet" type="text/css" href="http://s.dahao.de/lib/bootstrap-3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="http://s.dahao.de/css/dahao.min.css?20160708">
+        <style>
+        *{margin:0;padding:0;}
+        *:before,*:after{
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box}
+        .listBox:before,.listBox:after{content: "";display: table}
+        .listBox:after{clear:both;}
+        .carouselBox{width: 100%;height: 360px;overflow: hidden;position: relative;}
+        .clickSpace{width: 1000px;height:100%;margin: auto}
+        .maskLeft,.maskRight{height: 100%;width: 50%;position: absolute;top: 0;background: rgba(255,255,255,0.3);z-index: 2;transition:opacity 0.5s ease 0s;}
+        .maskLeft{left:-500px;}
+        .maskRight{right:-500px;}
+        .carousel{width: 100%;height:100%;}
+        .listBox{min-width:20000px;height: 100%;margin-left: -200%;transition: transform 500ms ease 0s;background: rgba(1,1,1,.5);
+            -webkit-transform:translate(0,0);
+            -moz-transform:translate(0,0);
+            -ms-transform:translate(0,0);
+            -o-transform:translate(0,0);
+            transform:translate(0,0);
+        }
+        .item{
+            float: left;width: 1000px;height: 100%;
+        }
+        .item a{display: block;width: 100%;height: 100%}
+        .item:not(.active){
+            filter: url(blur.svg#blur);
+            -webkit-filter: blur(5px);
+            -moz-filter: blur(5px);
+            -ms-filter: blur(5px);
+            filter: blur(5px);
+            filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=5, MakeShadow=false);
+        }
+        .playBoxL,.playBoxR{width:100%;height: 100%;position: relative;}
+        .playPrev,.playNext{width: 80px;height: 80px;opacity: 0;position: absolute;top: 50%;transform: translateY(-50%);}
+        .playPrev{right: 0;background-image:url('http://i0.hdslb.com/u_user/travel/public/img/blog/index/left.png'); background-size: 100% 100%}
+        .playNext{left: 0;background-image:url('http://i0.hdslb.com/u_user/travel/public/img/blog/index/right.png');background-size: 100% 100%}
+        .active{}
+        @media screen and (min-width: 320px) {
+            .carouselBox{height: 82.28px}
+            .clickSpace,.item{width: 228.57px}
+            .maskLeft{left: -114.28px}
+            .maskRight{right: -114.28px}
+            .playPrev,.playNext{width:18.28px ;height:18.28px }
+            
+        }
+        @media screen and (min-width: 360px) {
+            .carouselBox{height: 92.57px}
+            .clickSpace,.item{width: 257.14px}
+            .maskLeft{left: -128.57px}
+            .maskRight{right: -128.57px}
+            .playPrev,.playNext{width:20.57px ;height:20.57px }
+          
+        }
+        @media screen and (min-width: 768px) {
+            .carouselBox{height: 197.48px}
+            .clickSpace,.item{width: 548.57px}
+            .maskLeft{left: -274.28px}
+            .maskRight{right: -274.28px}
+            .playPrev,.playNext{width:43.88px ;height:43.88px }
+       
+        }
+        @media screen and (min-width: 992px) {
+            .carouselBox{height: 255.08px}
+            .clickSpace,.item{width: 708.57px}
+            .maskLeft{left: -354.28px}
+            .maskRight{right: -354.28px}
+            .playPrev,.playNext{width:56.68px ;height:56.68px }
+        }
+        @media screen and (min-width: 1200px) {
+            .carouselBox{height: 308.57px}
+            .clickSpace,.item{width: 857.14px}
+            .maskLeft{left: -428.57px}
+            .maskRight{right: -428.57px}
+            .playPrev,.playNext{width:68.57px ;height:68.57px }
+        }
+        @media screen and (min-width: 1400px) {
+            .carouselBox{height:360px }
+            .clickSpace,.item{width:1000px }
+            .maskLeft{left: -500px}
+            .maskRight{right: -500px}
+            .playPrev,.playNext{width:80px ;height: 80px}
+        }
+    </style>
+    </head>
+    <body class="index">
+        <!-- 基本页面定义-->
+        <nav class="header navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button data-toggle="collapse" data-target="#topnav" aria-expanded="false" class="navbar-toggle collapsed"><i class="icon-bar"></i><i class="icon-bar"></i><i class="icon-bar"></i></button><a href="#" class="navbar-brand dahao-logo"><img src="../img/logo.png" alt="" class="img-responsive">
+                        <h1 class="sr-only">大好网站</h1></a>
+                    <div class="search-mobile">
+                        <div class="search-column">
+                            <input type="text" name="keywords" placeholder="" class="form-control">
+                            <label>取消</label>
+                        </div>
+                        <button type="submit" class="search-btn"><span class="di-search icons"></span></button>
+                    </div>
+                </div>
+                <div id="topnav" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.html">首页</a></li>
+                        <li class="beta"><a href="circle-list.html">圈子</a>
+                            <div class="beta-badge">Beta</div>
+                        </li>
+                        <li><a href="getwrite.html">创作</a></li>
+                    </ul>
+                    <div role="search" class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <input type="text" name="keywords" placeholder="" class="form-control">
+                            <button class="search-btn"><span class="di-search icons"></span></button>
+                            <button type="submit" class="search button">找游戏</button>
+                        </div>
+                    </div>
+                    <ul class="nav-mes">
+                        <li class="mes-notify dropdown hidden-xs"><a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="di-bubbles4 icons"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="notify.html">私信</a></li>
+                                <li><a href="notify.html">好友动态</a>
+                                    <div class="badge">5</div>
+                                </li>
+                                <li><a href="notify.html">新的粉丝</a>
+                                    <div class="badge">5</div>
+                                </li>
+                                <li><a href="notify.html">@我的</a>
+                                    <div class="badge">5</div>
+                                </li>
+                                <li><a href="notify.html">给我的赞</a>
+                                    <div class="badge">5</div>
+                                </li>
+                                <li class="last"><a href="notify.html">系统消息</a>
+                                    <div class="badge">5</div>
+                                </li>
+                            </ul>
+                            <div class="circle-notify"></div>
+                        </li>
+                        <li class="user_center dropdown"><a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><img src="../../share/demo/user-avatar-1.png" class="user-avatar img-circle"></a>
+                            <ul class="dropdown-menu hidden-xs">
+                                <li><i class="icons di-pencil2 icons"></i><a href="works-manage.html">管理作品</a></li>
+                                <li><i class="icons di-star-empty icons"></i><a href="user-center.html">我的收藏</a></li>
+                                <li><i class="icons di-chevron-with-circle-left icons"></i><a href="user-center.html">我的足迹</a></li>
+                                <li><i class="icons di-cog icons"></i><a href="settings.html">设置</a></li>
+                                <li class="last"><i class="icons di-switch icons"></i><a href="#">退出</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 公用头部-->
+        </nav>
+        <!-- 页面顶部banner-->
+        <!-- 分类-->
+        <div class="container content">
+            <nav class="screening-box hidden-sm hidden-xs">
+                <ul class="list-inline">
+                    <li><a href="work-list.html" target="_blank">恐怖惊悚</a></li>
+                    <li><a href="work-list.html" target="_blank">悬疑推理</a></li>
+                    <li><a href="work-list.html" target="_blank">密室逃脱</a></li>
+                    <li><a href="work-list.html" target="_blank">现代都市</a></li>
+                    <li><a href="work-list.html" target="_blank">青春校园</a></li>
+                    <li><a href="work-list.html" target="_blank">古代言情</a></li>
+                    <li><a href="work-list.html" target="_blank">穿越言情</a></li>
+                    <li><a href="work-list.html" target="_blank">宫闱恩怨</a></li>
+                    <li><a href="work-list.html" target="_blank">脑洞大开</a></li>
+                    <li><a href="work-list.html" target="_blank">名作同人</a></li>
+                    <li><a href="work-list.html" target="_blank">休闲娱乐</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div style="background-color:rgba(255,255,255,.3);z-index=2 " class="banner column">
+            <div class="carouselBox">
+        <div class="maskLeft mask">
+            <div class="playBoxL">
+                <div class="playPrev"></div>
+            </div>
+        </div>
+        <div class="maskRight mask">
+            <div class="playBoxR">
+                <div class="playNext"></div>
+            </div>
+        </div>
+        <div class="carousel" style="touch-action:pan-y;-webkit-user-select:none;-webkit-user-drag:none;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);-moz-tap-highlight-color:rgba(0, 0, 0, 0);-ms-tap-highlight-color:rgba(0, 0, 0, 0);-o-tap-highlight-color:rgba(0, 0, 0, 0);tap-highlight-color:rgba(0, 0, 0, 0); ">
+            <div class="clickSpace">
+                <div class="listBox">
+                    <div class="item"><a data-href="http://www.baidu.com"><img src="http://i0.hdslb.com/group1/M00/5E/EB/oYYBAFbVcv6AGEw7AARD8EguBSQ058.jpg" alt="" height="100%" ></a></div><!-- 副本图片4 -->
+                    <div class="item"><a data-href="http://www.baidu.com"><img src="http://i0.hdslb.com/group1/M00/F6/AC/oYYBAFbFu42AEseIAAJcNXX3yD0807.jpg" alt="" height="100%" ></a></div><!-- 副本图片5 -->
+                    <div class="item active"><a data-href="http://www.baidu.com"><img src="http://i0.hdslb.com/group1/M00/B7/0C/oYYBAFcHXSmAKAldAAKR0TIwTC0951.jpg" alt="" height="100%" ></a></div><!-- 图片1 -->
+                    <div class="item"><a data-href="http://www.baidu.com"><img src="http://i0.hdslb.com/group1/M00/B7/09/oYYBAFcEvVaAbb61AAMCrHIU_DQ326.jpg" alt="" height="100%" ></a></div><!-- 图片2 -->
+                     <div class="item"><a data-href="http://www.baidu.com"><img src="http://i0.hdslb.com/group1/M00/69/14/oYYBAFbX46mAeL56AARNsz2Jhs8026.jpg" alt="" height="100%" ></a></div><!-- 图片3 -->
+                    <div class="item"><a data-href="http://www.baidu.com"><img src="http://i0.hdslb.com/group1/M00/5E/EB/oYYBAFbVcv6AGEw7AARD8EguBSQ058.jpg" alt="" height="100%" ></a></div><!-- 图片4 -->
+                    <div class="item"><a data-href="http://www.baidu.com"><img src="http://i0.hdslb.com/group1/M00/F6/AC/oYYBAFbFu42AEseIAAJcNXX3yD0807.jpg" alt="" height="100%" ></a></div><!-- 图片5 -->
+                    <div class="item"><a data-href="http://www.baidu.com"><img src="http://i0.hdslb.com/group1/M00/B7/0C/oYYBAFcHXSmAKAldAAKR0TIwTC0951.jpg" alt="" height="100%" ></a></div><!-- 副本图片1 -->
+                    <div class="item"><a data-href="http://www.baidu.com"><img src="http://i0.hdslb.com/group1/M00/B7/09/oYYBAFcEvVaAbb61AAMCrHIU_DQ326.jpg" alt="" height="100%" ></a></div><!-- 副本图片2 -->
+                     <div class="item"><a data-href="http://www.baidu.com"><img src="http://i0.hdslb.com/group1/M00/69/14/oYYBAFbX46mAeL56AARNsz2Jhs8026.jpg" alt="" height="100%" ></a></div><!-- 副本图片3 -->
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+        <div class="container">
+            <div class="works-column 1th-floor">
+                <div class="column-head clearfix"><i class="di-megaphone icons"></i>
+                    <h2>推荐游戏</h2>
+                </div>
+                <div class="works-content">
+                    <div class="row">
+                        <div class="work-box col-xs-6 col-sm-4 col-md-2">
+                            <div class="work-img"><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵"><img src="../../share/demo/works-cover.jpg" alt="" class="works-cover img-responsive"/></a><a href="" target="_blank" title="" class="di-fade">
+                                    <div class="di-PLAY5 icons"></div></a></div><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵" class="title">
+                                <h3 class="ellipsis">高考恋爱100天-同人创作一生挚爱罗晓涵</h3></a>
+                            <p class="sr-only">作品简介</p>
+                            <div class="pull-left">
+                                <!-- 播放按钮--><i class="di-play2 icons"></i><span title="播放数">233</span>
+                            </div>
+                            <div class="pull-right">
+                                <!-- 留言按钮--><i class="di-like icons"></i><span title="点赞数">233</span>
+                            </div>
+                        </div>
+                        <div class="work-box col-xs-6 col-sm-4 col-md-2">
+                            <div class="work-img"><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵"><img src="../../share/demo/works-cover.jpg" alt="" class="works-cover img-responsive"/></a><a href="" target="_blank" title="" class="di-fade">
+                                    <div class="di-PLAY5 icons"></div></a></div><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵" class="title">
+                                <h3 class="ellipsis">高考恋爱100天-同人创作一生挚爱罗晓涵</h3></a>
+                            <p class="sr-only">作品简介</p>
+                            <div class="pull-left">
+                                <!-- 播放按钮--><i class="di-play2 icons"></i><span title="播放数">233</span>
+                            </div>
+                            <div class="pull-right">
+                                <!-- 留言按钮--><i class="di-like icons"></i><span title="点赞数">233</span>
+                            </div>
+                        </div>
+                        <div class="work-box col-xs-6 col-sm-4 col-md-2">
+                            <div class="work-img"><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵"><img src="../../share/demo/works-cover.jpg" alt="" class="works-cover img-responsive"/></a><a href="" target="_blank" title="" class="di-fade">
+                                    <div class="di-PLAY5 icons"></div></a></div><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵" class="title">
+                                <h3 class="ellipsis">高考恋爱100天-同人创作一生挚爱罗晓涵</h3></a>
+                            <p class="sr-only">作品简介</p>
+                            <div class="pull-left">
+                                <!-- 播放按钮--><i class="di-play2 icons"></i><span title="播放数">233</span>
+                            </div>
+                            <div class="pull-right">
+                                <!-- 留言按钮--><i class="di-like icons"></i><span title="点赞数">233</span>
+                            </div>
+                        </div>
+                        <div class="work-box col-xs-6 col-sm-4 col-md-2">
+                            <div class="work-img"><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵"><img src="../../share/demo/works-cover.jpg" alt="" class="works-cover img-responsive"/></a><a href="" target="_blank" title="" class="di-fade">
+                                    <div class="di-PLAY5 icons"></div></a></div><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵" class="title">
+                                <h3 class="ellipsis">高考恋爱100天-同人创作一生挚爱罗晓涵</h3></a>
+                            <p class="sr-only">作品简介</p>
+                            <div class="pull-left">
+                                <!-- 播放按钮--><i class="di-play2 icons"></i><span title="播放数">233</span>
+                            </div>
+                            <div class="pull-right">
+                                <!-- 留言按钮--><i class="di-like icons"></i><span title="点赞数">233</span>
+                            </div>
+                        </div>
+                        <div class="work-box col-xs-6 col-sm-4 col-md-2">
+                            <div class="work-img"><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵"><img src="../../share/demo/works-cover.jpg" alt="" class="works-cover img-responsive"/></a><a href="" target="_blank" title="" class="di-fade">
+                                    <div class="di-PLAY5 icons"></div></a></div><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵" class="title">
+                                <h3 class="ellipsis">高考恋爱100天-同人创作一生挚爱罗晓涵</h3></a>
+                            <p class="sr-only">作品简介</p>
+                            <div class="pull-left">
+                                <!-- 播放按钮--><i class="di-play2 icons"></i><span title="播放数">233</span>
+                            </div>
+                            <div class="pull-right">
+                                <!-- 留言按钮--><i class="di-like icons"></i><span title="点赞数">233</span>
+                            </div>
+                        </div>
+                        <div class="work-box col-xs-6 col-sm-4 col-md-2">
+                            <div class="work-img"><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵"><img src="../../share/demo/works-cover.jpg" alt="" class="works-cover img-responsive"/></a><a href="" target="_blank" title="" class="di-fade">
+                                    <div class="di-PLAY5 icons"></div></a></div><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵" class="title">
+                                <h3 class="ellipsis">高考恋爱100天-同人创作一生挚爱罗晓涵</h3></a>
+                            <p class="sr-only">作品简介</p>
+                            <div class="pull-left">
+                                <!-- 播放按钮--><i class="di-play2 icons"></i><span title="播放数">233</span>
+                            </div>
+                            <div class="pull-right">
+                                <!-- 留言按钮--><i class="di-like icons"></i><span title="点赞数">233</span>
+                            </div>
+                        </div>
+                        <div class="work-box col-xs-6 col-sm-4 col-md-2">
+                            <div class="work-img"><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵"><img src="../../share/demo/works-cover.jpg" alt="" class="works-cover img-responsive"/></a><a href="" target="_blank" title="" class="di-fade">
+                                    <div class="di-PLAY5 icons"></div></a></div><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵" class="title">
+                                <h3 class="ellipsis">高考恋爱100天-同人创作一生挚爱罗晓涵</h3></a>
+                            <p class="sr-only">作品简介</p>
+                            <div class="pull-left">
+                                <!-- 播放按钮--><i class="di-play2 icons"></i><span title="播放数">233</span>
+                            </div>
+                            <div class="pull-right">
+                                <!-- 留言按钮--><i class="di-like icons"></i><span title="点赞数">233</span>
+                            </div>
+                        </div>
+                        <div class="work-box col-xs-6 col-sm-4 col-md-2">
+                            <div class="work-img"><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵"><img src="../../share/demo/works-cover.jpg" alt="" class="works-cover img-responsive"/></a><a href="" target="_blank" title="" class="di-fade">
+                                    <div class="di-PLAY5 icons"></div></a></div><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵" class="title">
+                                <h3 class="ellipsis">高考恋爱100天-同人创作一生挚爱罗晓涵</h3></a>
+                            <p class="sr-only">作品简介</p>
+                            <div class="pull-left">
+                                <!-- 播放按钮--><i class="di-play2 icons"></i><span title="播放数">233</span>
+                            </div>
+                            <div class="pull-right">
+                                <!-- 留言按钮--><i class="di-like icons"></i><span title="点赞数">233</span>
+                            </div>
+                        </div>
+                        <div class="work-box col-xs-6 col-sm-4 col-md-2">
+                            <div class="work-img"><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵"><img src="../../share/demo/works-cover.jpg" alt="" class="works-cover img-responsive"/></a><a href="" target="_blank" title="" class="di-fade">
+                                    <div class="di-PLAY5 icons"></div></a></div><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵" class="title">
+                                <h3 class="ellipsis">高考恋爱100天-同人创作一生挚爱罗晓涵</h3></a>
+                            <p class="sr-only">作品简介</p>
+                            <div class="pull-left">
+                                <!-- 播放按钮--><i class="di-play2 icons"></i><span title="播放数">233</span>
+                            </div>
+                            <div class="pull-right">
+                                <!-- 留言按钮--><i class="di-like icons"></i><span title="点赞数">233</span>
+                            </div>
+                        </div>
+                        <div class="work-box col-xs-6 col-sm-4 col-md-2">
+                            <div class="work-img"><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵"><img src="../../share/demo/works-cover.jpg" alt="" class="works-cover img-responsive"/></a><a href="" target="_blank" title="" class="di-fade">
+                                    <div class="di-PLAY5 icons"></div></a></div><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵" class="title">
+                                <h3 class="ellipsis">高考恋爱100天-同人创作一生挚爱罗晓涵</h3></a>
+                            <p class="sr-only">作品简介</p>
+                            <div class="pull-left">
+                                <!-- 播放按钮--><i class="di-play2 icons"></i><span title="播放数">233</span>
+                            </div>
+                            <div class="pull-right">
+                                <!-- 留言按钮--><i class="di-like icons"></i><span title="点赞数">233</span>
+                            </div>
+                        </div>
+                        <div class="work-box col-xs-6 col-sm-4 col-md-2">
+                            <div class="work-img"><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵"><img src="../../share/demo/works-cover.jpg" alt="" class="works-cover img-responsive"/></a><a href="" target="_blank" title="" class="di-fade">
+                                    <div class="di-PLAY5 icons"></div></a></div><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵" class="title">
+                                <h3 class="ellipsis">高考恋爱100天-同人创作一生挚爱罗晓涵</h3></a>
+                            <p class="sr-only">作品简介</p>
+                            <div class="pull-left">
+                                <!-- 播放按钮--><i class="di-play2 icons"></i><span title="播放数">233</span>
+                            </div>
+                            <div class="pull-right">
+                                <!-- 留言按钮--><i class="di-like icons"></i><span title="点赞数">233</span>
+                            </div>
+                        </div>
+                        <div class="work-box col-xs-6 col-sm-4 col-md-2">
+                            <div class="work-img"><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵"><img src="../../share/demo/works-cover.jpg" alt="" class="works-cover img-responsive"/></a><a href="" target="_blank" title="" class="di-fade">
+                                    <div class="di-PLAY5 icons"></div></a></div><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵" class="title">
+                                <h3 class="ellipsis">高考恋爱100天-同人创作一生挚爱罗晓涵</h3></a>
+                            <p class="sr-only">作品简介</p>
+                            <div class="pull-left">
+                                <!-- 播放按钮--><i class="di-play2 icons"></i><span title="播放数">233</span>
+                            </div>
+                            <div class="pull-right">
+                                <!-- 留言按钮--><i class="di-like icons"></i><span title="点赞数">233</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="rank column">
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <div class="recent">
+                            <div class="column-head clearfix"><i class="di-stats-bars icons"></i>
+                                <h2 class="pull-left">近期排行</h2>
+                                <ul id="myTab" class="list-inline pull-right">
+                                    <li class="active"><a href="#week" data-toggle="tab" class="tab-btn">本周</a></li>
+                                    <li><a href="#mouth" data-toggle="tab" class="tab-btn">本月</a></li>
+                                </ul>
+                            </div>
+                            <div id="myTabContent" class="tab-content">
+                                <ul id="week" class="tab-pane active panel-group">
+                                    <li class="panel">
+                                        <div data-toggle="collapse" data-parent="#week" href="#recent-1th" class="title"><span>1</span><a href="" title="" class="work-name">
+                                                <h3 class="ellipsis">高考恋一百天《夏色的风信子》第五部分</h3></a>
+                                            <div class="zan-num pull-right"><i class="di-like icons"><span class="sr-only">点赞数</span></i><span class="pull-right">11956</span></div>
+                                        </div>
+                                        <div id="recent-1th" class="work-info collapse panel-body in"><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵">
+                                                <div class="row">
+                                                    <div class="col-md-4 col-xs-5"><img src="../../share/demo/banner-2.jpg" alt="" class="works-cover img-responsive"></div>
+                                                    <div class="col-md-8 col-xs-7">
+                                                        <p class="content work-dec">作品简介: 一个简单的关于“定义选择”和“随机数据“的搞笑教学篇。具体文本写法，请参考网站命令手册。</p>
+                                                    </div>
+                                                </div></a></div>
+                                    </li>
+                                    <li class="panel">
+                                        <div data-toggle="collapse" data-parent="#week" href="#recent-2th" class="title"><span>2</span><a href="" title="" class="work-name">
+                                                <h3 class="ellipsis">高考恋一百天《夏色的风信子》第五部分</h3></a>
+                                            <div class="zan-num pull-right"><i class="di-like icons"><span class="sr-only">点赞数</span></i><span class="pull-right">11956</span></div>
+                                        </div>
+                                        <div id="recent-2th" class="work-info collapse panel-body"><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵">
+                                                <div class="row">
+                                                    <div class="col-md-4 col-xs-5"><img src="../../share/demo/banner-2.jpg" alt="" class="works-cover img-responsive"></div>
+                                                    <div class="col-md-8 col-xs-7">
+                                                        <p class="content work-dec">作品简介: 一个简单的关于“定义选择”和“随机数据“的搞笑教学篇。具体文本写法，请参考网站命令手册。</p>
+                                                    </div>
+                                                </div></a></div>
+                                    </li>
+                                    <li class="panel">
+                                        <div data-toggle="collapse" data-parent="#week" href="#recent-3th" class="title"><span>3</span><a href="" title="" class="work-name">
+                                                <h3 class="ellipsis">高考恋一百天《夏色的风信子》第五部分</h3></a>
+                                            <div class="zan-num pull-right"><i class="di-like icons"><span class="sr-only">点赞数</span></i><span class="pull-right">11956</span></div>
+                                        </div>
+                                        <div id="recent-3th" class="work-info collapse panel-body"><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵">
+                                                <div class="row">
+                                                    <div class="col-md-4 col-xs-5"><img src="../../share/demo/banner-2.jpg" alt="" class="works-cover img-responsive"></div>
+                                                    <div class="col-md-8 col-xs-7">
+                                                        <p class="content work-dec">作品简介: 一个简单的关于“定义选择”和“随机数据“的搞笑教学篇。具体文本写法，请参考网站命令手册。</p>
+                                                    </div>
+                                                </div></a></div>
+                                    </li>
+                                    <li class="panel">
+                                        <div data-toggle="collapse" data-parent="#week" href="#recent-4th" class="title"><span>4</span><a href="" title="" class="work-name">
+                                                <h3 class="ellipsis">高考恋一百天《夏色的风信子》第五部分</h3></a>
+                                            <div class="zan-num pull-right"><i class="di-like icons"><span class="sr-only">点赞数</span></i><span class="pull-right">11956</span></div>
+                                        </div>
+                                        <div id="recent-4th" class="work-info collapse panel-body"><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵">
+                                                <div class="row">
+                                                    <div class="col-md-4 col-xs-5"><img src="../../share/demo/banner-2.jpg" alt="" class="works-cover img-responsive"></div>
+                                                    <div class="col-md-8 col-xs-7">
+                                                        <p class="content work-dec">作品简介: 一个简单的关于“定义选择”和“随机数据“的搞笑教学篇。具体文本写法，请参考网站命令手册。</p>
+                                                    </div>
+                                                </div></a></div>
+                                    </li>
+                                    <li class="panel">
+                                        <div data-toggle="collapse" data-parent="#week" href="#recent-5th" class="title"><span>5</span><a href="" title="" class="work-name">
+                                                <h3 class="ellipsis">高考恋一百天《夏色的风信子》第五部分</h3></a>
+                                            <div class="zan-num pull-right"><i class="di-like icons"><span class="sr-only">点赞数</span></i><span class="pull-right">11956</span></div>
+                                        </div>
+                                        <div id="recent-5th" class="work-info collapse panel-body"><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵">
+                                                <div class="row">
+                                                    <div class="col-md-4 col-xs-5"><img src="../../share/demo/banner-2.jpg" alt="" class="works-cover img-responsive"></div>
+                                                    <div class="col-md-8 col-xs-7">
+                                                        <p class="content work-dec">作品简介: 一个简单的关于“定义选择”和“随机数据“的搞笑教学篇。具体文本写法，请参考网站命令手册。</p>
+                                                    </div>
+                                                </div></a></div>
+                                    </li>
+                                </ul>
+                                <ul id="mouth" class="tab-pane panel-group">
+                                    <li class="panel">
+                                        <div data-toggle="collapse" data-parent="#mouth" href="#mouth-1th" class="title"><span>1</span><a href="" title="" class="work-name">
+                                                <h3 class="ellipsis">高考恋一百天《夏色的风信子》第五部分</h3></a>
+                                            <div class="zan-num pull-right"><i class="di-like icons"><span class="sr-only">点赞数</span></i><span class="pull-right">11956</span></div>
+                                        </div>
+                                        <div id="mouth-1th" class="work-info collapse panel-body in"><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵">
+                                                <div class="row">
+                                                    <div class="col-md-4 col-xs-5"><img src="../../share/demo/banner-5.jpg" alt="" class="works-cover img-responsive"></div>
+                                                    <div class="col-md-8 col-xs-7">
+                                                        <p class="content work-dec">作品简介: 一个简单的关于“定义选择”和“随机数据“的搞笑教学篇。具体文本写法，请参考网站命令手册。</p>
+                                                    </div>
+                                                </div></a></div>
+                                    </li>
+                                    <li class="panel">
+                                        <div data-toggle="collapse" data-parent="#mouth" href="#mouth-2th" class="title"><span>1</span><a href="" title="" class="work-name">
+                                                <h3 class="ellipsis">高考恋一百天《夏色的风信子》第五部分</h3></a>
+                                            <div class="zan-num pull-right"><i class="di-like icons"><span class="sr-only">点赞数</span></i><span class="pull-right">11956</span></div>
+                                        </div>
+                                        <div id="mouth-2th" class="work-info collapse panel-body"><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵">
+                                                <div class="row">
+                                                    <div class="col-md-4 col-xs-5"><img src="../../share/demo/banner-5.jpg" alt="" class="works-cover img-responsive"></div>
+                                                    <div class="col-md-8 col-xs-7">
+                                                        <p class="content work-dec">作品简介: 一个简单的关于“定义选择”和“随机数据“的搞笑教学篇。具体文本写法，请参考网站命令手册。</p>
+                                                    </div>
+                                                </div></a></div>
+                                    </li>
+                                    <li class="panel">
+                                        <div data-toggle="collapse" data-parent="#mouth" href="#mouth-3th" class="title"><span>3</span><a href="" title="" class="work-name">
+                                                <h3 class="ellipsis">高考恋一百天《夏色的风信子》第五部分</h3></a>
+                                            <div class="zan-num pull-right"><i class="di-like icons"><span class="sr-only">点赞数</span></i><span class="pull-right">11956</span></div>
+                                        </div>
+                                        <div id="mouth-3th" class="work-info collapse panel-body"><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵">
+                                                <div class="row">
+                                                    <div class="col-md-4 col-xs-5"><img src="../../share/demo/banner-5.jpg" alt="" class="works-cover img-responsive"></div>
+                                                    <div class="col-md-8 col-xs-7">
+                                                        <p class="content work-dec">作品简介: 一个简单的关于“定义选择”和“随机数据“的搞笑教学篇。具体文本写法，请参考网站命令手册。</p>
+                                                    </div>
+                                                </div></a></div>
+                                    </li>
+                                    <li class="panel">
+                                        <div data-toggle="collapse" data-parent="#mouth" href="#mouth-4th" class="title"><span>4</span><a href="" title="" class="work-name">
+                                                <h3 class="ellipsis">高考恋一百天《夏色的风信子》第五部分</h3></a>
+                                            <div class="zan-num pull-right"><i class="di-like icons"><span class="sr-only">点赞数</span></i><span class="pull-right">11956</span></div>
+                                        </div>
+                                        <div id="mouth-4th" class="work-info collapse panel-body"><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵">
+                                                <div class="row">
+                                                    <div class="col-md-4 col-xs-5"><img src="../../share/demo/banner-5.jpg" alt="" class="works-cover img-responsive"></div>
+                                                    <div class="col-md-8 col-xs-7">
+                                                        <p class="content work-dec">作品简介: 一个简单的关于“定义选择”和“随机数据“的搞笑教学篇。具体文本写法，请参考网站命令手册。</p>
+                                                    </div>
+                                                </div></a></div>
+                                    </li>
+                                    <li class="panel">
+                                        <div data-toggle="collapse" data-parent="#mouth" href="#mouth-5th" class="title"><span>5</span><a href="" title="" class="work-name">
+                                                <h3 class="ellipsis">高考恋一百天《夏色的风信子》第五部分</h3></a>
+                                            <div class="zan-num pull-right"><i class="di-like icons"><span class="sr-only">点赞数</span></i><span class="pull-right">11956</span></div>
+                                        </div>
+                                        <div id="mouth-5th" class="work-info collapse panel-body"><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵">
+                                                <div class="row">
+                                                    <div class="col-md-4 col-xs-5"><img src="../../share/demo/banner-5.jpg" alt="" class="works-cover img-responsive"></div>
+                                                    <div class="col-md-8 col-xs-7">
+                                                        <p class="content work-dec">作品简介: 一个简单的关于“定义选择”和“随机数据“的搞笑教学篇。具体文本写法，请参考网站命令手册。</p>
+                                                    </div>
+                                                </div></a></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <div class="total">
+                            <div class="column-head clearfix"><i class="di-stats-bars icons"></i>
+                                <h2>总排行</h2>
+                            </div>
+                            <ul id="total" class="tab-pane panel-group">
+                                <li class="panel">
+                                    <div data-toggle="collapse" data-parent="#total" href="#total-1th" class="title"><span>1</span><a href="" title="" class="work-name">
+                                            <h3 class="ellipsis">高考恋一百天《夏色的风信子》第五部分</h3></a>
+                                        <div class="zan-num pull-right"><i class="di-like icons"><span class="sr-only">点赞数</span></i><span class="pull-right">11956</span></div>
+                                    </div>
+                                    <div id="total-1th" class="work-info panel-collapse collapse panel-body in"><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵">
+                                            <div class="row">
+                                                <div class="col-md-4 col-xs-5"><img src="../../share/demo/banner-2.jpg" alt="" class="works-cover img-responsive"></div>
+                                                <div class="col-md-8 col-xs-7">
+                                                    <p class="content work-dec">作品简介: 一个简单的关于“定义选择”和“随机数据“的搞笑教学篇。具体文本写法，请参考网站命令手册。</p>
+                                                </div>
+                                            </div></a></div>
+                                </li>
+                                <li class="panel">
+                                    <div data-toggle="collapse" data-parent="#total" href="#total-2th" class="title"><span>1</span><a href="" title="" class="work-name">
+                                            <h3 class="ellipsis">高考恋一百天《夏色的风信子》第五部分</h3></a>
+                                        <div class="zan-num pull-right"><i class="di-like icons"><span class="sr-only">点赞数</span></i><span class="pull-right">11956</span></div>
+                                    </div>
+                                    <div id="total-2th" class="work-info panel-collapse collapse panel-body"><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵">
+                                            <div class="row">
+                                                <div class="col-md-4 col-xs-5"><img src="../../share/demo/banner-2.jpg" alt="" class="works-cover img-responsive"></div>
+                                                <div class="col-md-8 col-xs-7">
+                                                    <p class="content work-dec">作品简介: 一个简单的关于“定义选择”和“随机数据“的搞笑教学篇。具体文本写法，请参考网站命令手册。</p>
+                                                </div>
+                                            </div></a></div>
+                                </li>
+                                <li class="panel">
+                                    <div data-toggle="collapse" data-parent="#total" href="#total-3th" class="title"><span>3</span><a href="" title="" class="work-name">
+                                            <h3 class="ellipsis">高考恋一百天《夏色的风信子》第五部分</h3></a>
+                                        <div class="zan-num pull-right"><i class="di-like icons"><span class="sr-only">点赞数</span></i><span class="pull-right">11956</span></div>
+                                    </div>
+                                    <div id="total-3th" class="work-info panel-collapse collapse panel-body"><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵">
+                                            <div class="row">
+                                                <div class="col-md-4 col-xs-5"><img src="../../share/demo/banner-2.jpg" alt="" class="works-cover img-responsive"></div>
+                                                <div class="col-md-8 col-xs-7">
+                                                    <p class="content work-dec">作品简介: 一个简单的关于“定义选择”和“随机数据“的搞笑教学篇。具体文本写法，请参考网站命令手册。</p>
+                                                </div>
+                                            </div></a></div>
+                                </li>
+                                <li class="panel">
+                                    <div data-toggle="collapse" data-parent="#total" href="#total-4th" class="title"><span>4</span><a href="" title="" class="work-name">
+                                            <h3 class="ellipsis">高考恋一百天《夏色的风信子》第五部分</h3></a>
+                                        <div class="zan-num pull-right"><i class="di-like icons"><span class="sr-only">点赞数</span></i><span class="pull-right">11956</span></div>
+                                    </div>
+                                    <div id="total-4th" class="work-info panel-collapse collapse panel-body"><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵">
+                                            <div class="row">
+                                                <div class="col-md-4 col-xs-5"><img src="../../share/demo/banner-2.jpg" alt="" class="works-cover img-responsive"></div>
+                                                <div class="col-md-8 col-xs-7">
+                                                    <p class="content work-dec">作品简介: 一个简单的关于“定义选择”和“随机数据“的搞笑教学篇。具体文本写法，请参考网站命令手册。</p>
+                                                </div>
+                                            </div></a></div>
+                                </li>
+                                <li class="panel">
+                                    <div data-toggle="collapse" data-parent="#total" href="#total-5th" class="title"><span>5</span><a href="" title="" class="work-name">
+                                            <h3 class="ellipsis">高考恋一百天《夏色的风信子》第五部分</h3></a>
+                                        <div class="zan-num pull-right"><i class="di-like icons"><span class="sr-only">点赞数</span></i><span class="pull-right">11956</span></div>
+                                    </div>
+                                    <div id="total-5th" class="work-info panel-collapse collapse panel-body"><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵">
+                                            <div class="row">
+                                                <div class="col-md-4 col-xs-5"><img src="../../share/demo/banner-2.jpg" alt="" class="works-cover img-responsive"></div>
+                                                <div class="col-md-8 col-xs-7">
+                                                    <p class="content work-dec">作品简介: 一个简单的关于“定义选择”和“随机数据“的搞笑教学篇。具体文本写法，请参考网站命令手册。</p>
+                                                </div>
+                                            </div></a></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="circle column">
+                <div class="column-head clearfix"><i class="di-vinyl icons"></i>
+                    <h2>发现圈子</h2><a href="circle-list.html" target="_blank" class="more pull-right">更多></a>
+                </div>
+                <div class="circle-content">
+                    <div class="row">
+                        <div class="col-xs-6 col-md-2 col-sm-4">
+                            <div class="circle-cover"><a href="circle-list.html" target="_blank"><img src="../../share/demo/u723.png" alt="" class="img-circle img-responsive">
+                                    <div class="fade-mask">高考恋爱100天带我们回味了那段青春时光，你一定也有自己的故事，加入圈子可用高考恋爱100天官方授权游戏素材</div><a title="" class="circle-title">
+                                        <h3 class="ellipsis">高考恋爱100天</h3>
+                                        <h4 class="circle-number">成员 12345</h4></a></a>
+                                <div class="circle-badge">官方</div>
+                                <p class="sr-only">圈子简介</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-md-2 col-sm-4">
+                            <div class="circle-cover"><a href="circle-list.html" target="_blank"><img src="../../share/demo/circle-4.png" alt="" class="img-circle img-responsive">
+                                    <div class="fade-mask">高考恋爱100天带我们回味了那段青春时光，你一定也有自己的故事，加入圈子可用高考恋爱100天官方授权游戏素材</div><a title="" class="circle-title">
+                                        <h3 class="ellipsis">高考恋爱100天</h3>
+                                        <h4 class="circle-number">成员 12345</h4></a></a>
+                                <div class="circle-badge">官方</div>
+                                <p class="sr-only">圈子简介</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-md-2 col-sm-4">
+                            <div class="circle-cover"><a href="circle-list.html" target="_blank"><img src="../../share/demo/circle-3.png" alt="" class="img-circle img-responsive">
+                                    <div class="fade-mask">高考恋爱100天带我们回味了那段青春时光，你一定也有自己的故事，加入圈子可用高考恋爱100天官方授权游戏素材</div><a title="" class="circle-title">
+                                        <h3 class="ellipsis">高考恋爱100天</h3>
+                                        <h4 class="circle-number">成员 12345</h4></a></a>
+                                <div class="circle-badge">官方</div>
+                                <p class="sr-only">圈子简介</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-md-2 col-sm-4">
+                            <div class="circle-cover"><a href="circle-list.html" target="_blank"><img src="../../share/demo/circle-2.png" alt="" class="img-circle img-responsive">
+                                    <div class="fade-mask">高考恋爱100天带我们回味了那段青春时光，你一定也有自己的故事，加入圈子可用高考恋爱100天官方授权游戏素材</div><a title="" class="circle-title">
+                                        <h3 class="ellipsis">高考恋爱100天</h3>
+                                        <h4 class="circle-number">成员 12345</h4></a></a>
+                                <div class="circle-badge">官方</div>
+                                <p class="sr-only">圈子简介</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-md-2 col-sm-4">
+                            <div class="circle-cover"><a href="circle-list.html" target="_blank"><img src="../../share/demo/circle-1.png" alt="" class="img-circle img-responsive">
+                                    <div class="fade-mask">高考恋爱100天带我们回味了那段青春时光，你一定也有自己的故事，加入圈子可用高考恋爱100天官方授权游戏素材</div><a title="" class="circle-title">
+                                        <h3 class="ellipsis">高考恋爱100天</h3>
+                                        <h4 class="circle-number">成员 12345</h4></a></a>
+                                <div class="circle-badge">官方</div>
+                                <p class="sr-only">圈子简介</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-md-2 col-sm-4">
+                            <div class="circle-cover"><a href="circle-list.html" target="_blank"><img src="../../share/demo/u961.png" alt="" class="img-circle img-responsive">
+                                    <div class="di-plus icons"></div><a title="" class="circle-title">
+                                        <h3 class="ellipsis">更多圈子</h3></a></a>
+                                <p class="sr-only">更多圈子</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="works-column 2th-floor">
+                <div class="column-head clearfix"><i class="di-paperplane icons"></i>
+                    <h2>最新游戏</h2><a href="circle-list.html" target="_blank" class="more pull-right">更多></a>
+                </div>
+                <div class="works-content">
+                    <div class="row">
+                        <div class="work-box col-xs-6 col-sm-4 col-md-2">
+                            <div class="work-img"><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵"><img src="../../share/demo/works-cover.jpg" alt="" class="works-cover img-responsive"/></a><a href="" target="_blank" title="" class="di-fade">
+                                    <div class="di-PLAY5 icons"></div></a></div><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵" class="title">
+                                <h3 class="ellipsis">高考恋爱100天-同人创作一生挚爱罗晓涵</h3></a>
+                            <p class="sr-only">作品简介</p>
+                            <div class="pull-left">
+                                <!-- 播放按钮--><i class="di-play2 icons"></i><span title="播放数">233</span>
+                            </div>
+                            <div class="pull-right">
+                                <!-- 留言按钮--><i class="di-like icons"></i><span title="点赞数">233</span>
+                            </div>
+                        </div>
+                        <div class="work-box col-xs-6 col-sm-4 col-md-2">
+                            <div class="work-img"><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵"><img src="../../share/demo/works-cover.jpg" alt="" class="works-cover img-responsive"/></a><a href="" target="_blank" title="" class="di-fade">
+                                    <div class="di-PLAY5 icons"></div></a></div><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵" class="title">
+                                <h3 class="ellipsis">高考恋爱100天-同人创作一生挚爱罗晓涵</h3></a>
+                            <p class="sr-only">作品简介</p>
+                            <div class="pull-left">
+                                <!-- 播放按钮--><i class="di-play2 icons"></i><span title="播放数">233</span>
+                            </div>
+                            <div class="pull-right">
+                                <!-- 留言按钮--><i class="di-like icons"></i><span title="点赞数">233</span>
+                            </div>
+                        </div>
+                        <div class="work-box col-xs-6 col-sm-4 col-md-2">
+                            <div class="work-img"><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵"><img src="../../share/demo/works-cover.jpg" alt="" class="works-cover img-responsive"/></a><a href="" target="_blank" title="" class="di-fade">
+                                    <div class="di-PLAY5 icons"></div></a></div><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵" class="title">
+                                <h3 class="ellipsis">高考恋爱100天-同人创作一生挚爱罗晓涵</h3></a>
+                            <p class="sr-only">作品简介</p>
+                            <div class="pull-left">
+                                <!-- 播放按钮--><i class="di-play2 icons"></i><span title="播放数">233</span>
+                            </div>
+                            <div class="pull-right">
+                                <!-- 留言按钮--><i class="di-like icons"></i><span title="点赞数">233</span>
+                            </div>
+                        </div>
+                        <div class="work-box col-xs-6 col-sm-4 col-md-2">
+                            <div class="work-img"><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵"><img src="../../share/demo/works-cover.jpg" alt="" class="works-cover img-responsive"/></a><a href="" target="_blank" title="" class="di-fade">
+                                    <div class="di-PLAY5 icons"></div></a></div><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵" class="title">
+                                <h3 class="ellipsis">高考恋爱100天-同人创作一生挚爱罗晓涵</h3></a>
+                            <p class="sr-only">作品简介</p>
+                            <div class="pull-left">
+                                <!-- 播放按钮--><i class="di-play2 icons"></i><span title="播放数">233</span>
+                            </div>
+                            <div class="pull-right">
+                                <!-- 留言按钮--><i class="di-like icons"></i><span title="点赞数">233</span>
+                            </div>
+                        </div>
+                        <div class="work-box col-xs-6 col-sm-4 col-md-2">
+                            <div class="work-img"><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵"><img src="../../share/demo/works-cover.jpg" alt="" class="works-cover img-responsive"/></a><a href="" target="_blank" title="" class="di-fade">
+                                    <div class="di-PLAY5 icons"></div></a></div><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵" class="title">
+                                <h3 class="ellipsis">高考恋爱100天-同人创作一生挚爱罗晓涵</h3></a>
+                            <p class="sr-only">作品简介</p>
+                            <div class="pull-left">
+                                <!-- 播放按钮--><i class="di-play2 icons"></i><span title="播放数">233</span>
+                            </div>
+                            <div class="pull-right">
+                                <!-- 留言按钮--><i class="di-like icons"></i><span title="点赞数">233</span>
+                            </div>
+                        </div>
+                        <div class="work-box col-xs-6 col-sm-4 col-md-2">
+                            <div class="work-img"><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵"><img src="../../share/demo/works-cover.jpg" alt="" class="works-cover img-responsive"/></a><a href="" target="_blank" title="" class="di-fade">
+                                    <div class="di-PLAY5 icons"></div></a></div><a href="work.html" title="高考恋爱100天-同人创作一生挚爱罗晓涵" class="title">
+                                <h3 class="ellipsis">高考恋爱100天-同人创作一生挚爱罗晓涵</h3></a>
+                            <p class="sr-only">作品简介</p>
+                            <div class="pull-left">
+                                <!-- 播放按钮--><i class="di-play2 icons"></i><span title="播放数">233</span>
+                            </div>
+                            <div class="pull-right">
+                                <!-- 留言按钮--><i class="di-like icons"></i><span title="点赞数">233</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="bigine column">
+                <div class="column-head clearfix"><i class="di-pen2 icons"></i>
+                    <h2>大好的引擎</h2>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-md-6"><a href="" title="" class="block block-1"><img src="../../share/demo/bigine-1.jpg" alt="" class="img-responsive"></a></div>
+                    <div class="col-xs-12 col-md-6"><a href="" title="" class="block block-1"><img src="../../share/demo/bigine-2.jpg" alt="" class="img-responsive"></a></div>
+                    <div class="col-xs-12 col-md-6"><a href="" title="" class="block block-1"><img src="../../share/demo/bigine-3.jpg" alt="" class="img-responsive"></a></div>
+                    <div class="col-xs-12 col-md-6"><a href="" title="" class="block block-1"><img src="../../share/demo/bigine-4.jpg" alt="" class="img-responsive"></a></div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="partners column">
+                <div class="column-head clearfix">
+                    <h2>合作伙伴</h2>
+                </div>
+                <div class="links"><a href="http://manhua.weibo.com" title="微漫画" target="_blank">微漫画</a><a href="http://comic.sina.com.cn" title="新浪动漫" target="_blank">新浪动漫</a><a href="http://www.ishangman.com/" title="i尚漫" target="_blank">i尚漫</a><a href="http://www.cngal.org/" title="CnGal中文gagame资料站" target="_blank">CnGal</a><a href="http://www.nvlmaker.net/index.html" title="NVLMaker" target="_blank">NVLMaker</a>
+                </div>
+            </div>
+        </div>
+        <div class="feature-btn visible-md visible-lg"><a data-toggle="modal" data-target="#advice" class="advice"><span>意见反馈</span></a><a class="advisory-QQ">
+                <div class="di-qq icons"></div><span>客服</span></a><a class="up dahao-top">
+                <div class="di-up2 icons"></div><span>回顶部</span></a></div>
+        <div id="advice" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" class="modal function-pop pop-edit advice">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div aria-label="Close" data-dismiss="modal" class="close"><span arial-hidden="true" class="di-X2 icons"></span></div>
+                    <ul>
+                        <li class="head"><span>意见反馈</span></li>
+                        <li class="wen-content">
+                            <div class="form-gourp">
+                                <textarea maxlength="5000" cols="9" name="reply" placeholder="欢迎提出对网站的改进意见" class="textarea"></textarea>
+                            </div>
+                            <div class="form-gourp handle">
+                                <button class="btn btn-default pull-right">提交反馈</button><span class="pull-right">0/500
+                                    <!-- 页面右侧功能按钮--></span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="container clearfix">
+                <div class="about">
+                    <ul class="list-unstyled list-inline">
+                        <li><a href="">首页</a></li>
+                        <li><a href="">关于我们</a></li>
+                        <li><a href="">加入我们</a></li>
+                        <li><a href="">网站协议</a></li>
+                        <li><a href="">APP</a></li>
+                    </ul><span>网络文化经营许可证：鄂网文〔2016〕0607-004号</span><span>互联网ICP备案：鄂ICP备15011513号-1</span><span>增值电信业务经营许可证： 鄂B2-20160048</span><span>©2016大好网站版权所有 侵权必究</span>
+                </div>
+                <div class="contact hidden-xs hidden-sm">
+                    <h5>关注我们</h5>
+                    <ul class="list-inline">
+                        <li class="wechat"><span>微信公众号</span>
+                            <div class="di-wechat icons"></div>
+                            <div class="di-popover wechat"><img src="../../share/demo/wechat.jpg">
+                                <div class="arrow"></div>
+                            </div>
+                        </li>
+                        <li class="weibo"><span>新浪微博</span><a href="" target="_blank">
+                                <div class="di-weibo icons"></div></a>
+                            <div class="di-popover weibo"><img src="../../share/demo/weibo.png">
+                                <div class="arrow"></div>
+                            </div>
+                        </li>
+                        <li><span>官方交流QQ群：511346202</span><a href="" target="_blank">
+                                <div class="di-qq icons"></div>
+                                <!-- 公用尾部--></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script src="http://s.dahao.de/lib/jquery-2.1.1/jquery.min.js"></script>
+        <script src="http://s.dahao.de/lib/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+        <script>
+$('a').each(function(i,e){
+    $(this).attr('href',$(this).data("href"));
+})
+   var carouselData=[
+    {"src":"http://i0.hdslb.com/group1/M00/B7/0C/oYYBAFcHXSmAKAldAAKR0TIwTC0951.jpg"},
+    {"src":"http://i0.hdslb.com/group1/M00/B7/09/oYYBAFcEvVaAbb61AAMCrHIU_DQ326.jpg"},
+    {"src":"http://i0.hdslb.com/group1/M00/69/14/oYYBAFbX46mAeL56AARNsz2Jhs8026.jpg"},
+    {"src":"http://i0.hdslb.com/group1/M00/5E/EB/oYYBAFbVcv6AGEw7AARD8EguBSQ058.jpg"},
+    {"src":"http://i0.hdslb.com/group1/M00/F6/AC/oYYBAFbFu42AEseIAAJcNXX3yD0807.jpg"}
+    ];
+    var listBox=$('.carousel .listBox');
+    var items=$('.carousel .item');
+    var index = 1;
+    var loop = setInterval("playNext()",5000);
+    var itemNum=carouselData.length;
+    var transitioned=true;
+    var direction=true;//右true 左false
+    var scrollLength=0;
+    var scrollWidth=0;
+//箭头显示
+$('.carouselBox .maskLeft').on('mouseover',function(){
+    $(this).find('.playPrev').css('opacity',1);
+    $('.carouselBox .maskRight').find('.playNext').css('opacity',1);
+})
+$('.carouselBox .maskLeft').on('mouseleave',function(){
+    $(this).find('.playPrev').css('opacity',0);
+    $('.carouselBox .maskRight').find('.playNext').css('opacity',0);
+})
+$('.carouselBox .maskRight').on('mouseover',function(){
+    $(this).find('.playNext').css('opacity',1);
+    $('.carouselBox .maskLeft').find('.playPrev').css('opacity',1);
+})
+$('.carouselBox .maskRight').on('mouseleave',function(){
+    $(this).find('.playNext').css('opacity',0);
+    $('.carouselBox .maskLeft').find('.playPrev').css('opacity',0);
+})
+//移动端箭头消失
+$('.carouselBox .maskLeft').get(0).addEventListener('touchstart',function(event){
+    $(this).find('.playPrev').css('opacity',1);
+    $('.carouselBox .maskRight').find('.playNext').css('opacity',1);
+    var delay=setTimeout(function(){
+        $('.carouselBox .maskLeft').find('.playPrev').css('opacity',0);
+        $('.carouselBox .maskRight').find('.playNext').css('opacity',0);
+    },500)
+})
+$('.carouselBox .maskRight').get(0).addEventListener('touchstart',function(event){
+    $(this).find('.playNext').css('opacity',1);
+    $('.carouselBox .maskLeft').find('.playPrev').css('opacity',1);
+    var delay=setTimeout(function(){
+        $('.carouselBox .maskRight').find('.playNext').css('opacity',0);
+        $('.carouselBox .maskLeft').find('.playPrev').css('opacity',0);
+    },500)
+})
+//响应式支持
+$(document).ready(function(){
+    scrollLength=parseInt($('.carousel .item').width());
+    scrollWidth=parseInt($('.carousel .item').width());
+})
+$(window).on('resize',function(){
+    scrollLength=parseInt($('.carousel .item').width());
+    var n_scrollLength=parseInt($('.carousel .item').width());
+    if(n_scrollLength!=scrollWidth){scrollWidth=n_scrollLength;
+        $('.carousel .listBox').css({transition:'none',transform:'translate3d(-'+((index-1)*n_scrollLength)+'px,0px,0px)'});
+        $('.playBoxR').on('click',function(){playNext();})
+        $('.playBoxL').on('click',function(){playPrev();})
+    }
+})
+//动画结束后执行
+$('.carousel .listBox').on('transitionend',function(){
+    transitioned=true;
+    if(direction){
+                   if(index==itemNum+1){
+            index=1;
+            $('.carousel .listBox').css({transition:'none',transform:'translate3d(0px,0px,0px)'});
+            $('.carousel .item.active').removeClass('active').siblings($('.carousel .item')).eq(2).addClass('active')
+        }      
+        $('.playBoxL').on('click',function(){playPrev()});
+        $('.playBoxR').on('click',function(){playNext()});  
+        loop = setInterval("playNext()",2000);
+    }
+    else{
+                    if(index==0)
+            {
+                index=5;
+                $('.carousel .listBox').css({transition:'none',transform:'translate3d(-'+4*scrollLength+'px,0px,0px)'});
+                $('.carousel .item.active').removeClass('active').siblings($('.carousel .item')).eq(5).addClass('active');
+            }
+        $('.playBoxL').on('click',function(){playPrev()});
+        $('.playBoxR').on('click',function(){playNext()}); 
+        loop = setInterval("playNext()",2000);
+    }
+})
+//执行动画
+    function playNext(){
+        direction=true;
+        clearInterval(loop);
+        $('.playBoxL').off('click');
+        $('.playBoxR').off('click');
+        if(index<=itemNum)
+            {   
+                $('.carousel .listBox').css('transition','transform 500ms ease 0s');
+                var transformArray= $('.carousel .listBox').css('transform'),
+                    translateArray=transformArray.split(','),
+                    translate=parseInt(translateArray[4]); 
+                // console.log(translate,scrollLength);  
+                $('.carousel .listBox').css('transform','translate3d(' + (translate - scrollLength) + 'px, 0px, 0px)');
+                $('.carousel .item.active').removeClass('active').next($('carousel .item')).addClass('active');
+                index++;}
+    }
+    function playPrev(){
+        direction=false;
+        clearInterval(loop);
+        $('.playBoxL').off('click');
+        $('.playBoxR').off('click');
+         if(index>=1)
+        {   $('.carousel .listBox').css('transition','transform 500ms ease 0s'); 
+             var transformArray= $('.carousel .listBox').css('transform'),
+                    translateArray=transformArray.split(','),
+                    translate=parseInt(translateArray[4]);
+            $('.carousel .listBox').css('transform','translate3d(' + (translate + scrollLength) + 'px, 0px, 0px)');
+            $('.carousel .item.active').removeClass('active').prev($('carousel .item')).addClass('active');
+            index--}
+    }
+//响应事件
+    $('.playBoxR').on('click',function(){
+        playNext();
+    })
+    $('.playBoxL').on('click',function(){
+        playPrev();
+    })
+//移动端支持
+var startX=0,
+    startY=0,
+    endX=0,
+    endY=0;
+$('.carousel .listBox').get(0).addEventListener('touchstart',function(event){
+    startX=event.touches[0].pageX;
+    startY=event.touches[0].pageY;
+})
+
+$('.carousel .listBox').get(0).addEventListener('touchend',function(event){
+    endX=event.changedTouches[0].pageX;
+    endY=event.changedTouches[0].pageY;
+    var deltaX=endX-startX;
+    var deltaY=endY-startY;
+    if(Math.abs(deltaX)>40)
+    {
+    if(deltaX<0)
+    {
+        playNext()
+    }
+    else{
+       playPrev();
+    }
+}
+})
+//支持uc
+$('.carousel .listBox').get(0).addEventListener('touchcancel',function(event){
+    endX=event.changedTouches[0].pageX;
+    endY=event.changedTouches[0].pageY;
+    var deltaX=endX-startX;
+    var deltaY=endY-startY;
+    if(Math.abs(deltaX)>40)
+    {
+    if(deltaX<0)
+    {
+        playNext()
+    }
+    else{
+       playPrev();
+    }
+}
+})
+</script> 
+    </body>
+</html>

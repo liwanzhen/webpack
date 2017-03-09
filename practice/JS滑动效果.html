@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>帐户设置-基本资料</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <meta name="renderer" content="webkit|ie-comp|ie-stand"> 
+
+
+  <style>
+   
+   .aa{
+    width: 30px;
+    height: 30px;
+    background:green;
+   }
+   .bb{
+    width: 200px;
+    height: 200px;
+    border:1px solid red;
+    position:relative;
+    overflow: hidden;
+   }
+   .show{
+    animation:myfirst 2s;
+    -moz-animation:myfirst 2s; /* Firefox */
+    -webkit-animation:myfirst 2s; /* Safari and Chrome */
+    -o-animation:myfirst 2s; /* Opera */
+   }
+   @keyframes myfirst{
+    0%{
+      left:-30px;
+    }
+    100%{
+      left:0;
+    }
+   }
+   .hide{
+    animation:myfirst2 2s;
+    -moz-animation:myfirst2 2s; /* Firefox */
+    -webkit-animation:myfirst2 2s; /* Safari and Chrome */
+    -o-animation:myfirst2 2s; /* Opera */
+   }
+   @keyframes myfirst2{
+    0%{
+      left:0px;
+    }
+    100%{
+      left:-30px;
+    }
+   }
+   .cc{
+    position: absolute;
+    width: 30px;
+    height: 50px;
+    background:yellow;
+    top:0;
+    left:-30px;
+   }
+  </style>
+</head>
+<body>
+
+<div class="aa"></div>
+<div class="bb">
+  <div class="cc"></div>
+</div>
+</body>
+
+<script>
+  
+  var aa=document.getElementsByClassName('aa')[0];
+  var cc=document.getElementsByClassName('cc')[0];
+  var timer;
+  aa.onclick=function(){
+    if(cc.className!='cc show'){
+      clearTimeout(timer)
+      cc.className="cc show";
+      timer=setTimeout("cc.style.left=0",2000)
+    }else{
+      clearTimeout(timer)
+      cc.className="cc hide";
+      timer=setTimeout("cc.style.left=-30+'px'",2000)
+    }
+    
+  }
+</script>
+</html>

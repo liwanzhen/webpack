@@ -1,0 +1,194 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>BOM</title>
+<script rel="stylesheet" src="../jquery-1.11.2.min.js"></script>
+<script rel="stylesheet" src="../1/1.js"></script>
+<style type="text/css">
+.overlay{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.8);
+}
+.box-login{
+    display: none;
+    margin: 10px auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 200px;
+    height: 300px;
+    height: 1500px;
+    background: #fff;
+    z-index: 1;
+}
+.box-content {
+    display: none;
+    margin: 10px auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 200px;
+    height: 1500px;
+    background: #fff;
+}
+</style>
+</head>
+<body style="height: 2000px;">
+
+<a class="js-open-box" href="#">显示弹窗</a>
+
+<p>正文内容</p>
+<p>正文内容</p>
+<p>正文内容</p>
+<p>正文内容</p>
+<p>正文内容</p>
+<p>正文内容</p>
+<p>正文内容</p>
+<p>正文内容</p>
+<p>正文内容</p>
+<p>正文内容</p>
+<p>正文内容</p>
+<p>正文内容</p>
+
+
+<div class="overlay">
+<div class="box-login">
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+    这里是弹窗内容
+</div>
+</div>
+
+
+<script>
+$('.js-open-box').on('click',function(){
+    $(document.body).css({"overflow": "hidden"});    // 禁止滚动条 弹窗显示时让页面溢出隐藏
+    $('.overlay,.box-login').css({"overflow-y": "scroll"});
+    $('.overlay,.box-login').fadeIn(200);
+});
+
+$('.overlay').on('click',function(){
+    $('.overlay,.box-login').fadeOut(200,function(){
+        $(document.body).css({"overflow": "auto"});    // 恢复滚动条
+        $(this).removeAttr('style');
+    });
+});
+</script>
+
+</body>
+</html>

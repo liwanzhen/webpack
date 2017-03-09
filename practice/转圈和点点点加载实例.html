@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>Bootstrap 哈哈</title>
+<!--    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script> -->
+<style>
+/* .progress1 img {
+	box-shadow: inset 5px 5px 10px black;
+}
+.progress2 img {
+	filter:drop-shadow(5px 5px 10px black);
+	filter:drop-shadow(5px 5px 10px black);
+} */
+.dotting {
+    display: inline-block; min-width: 2px; min-height: 2px;
+    box-shadow: 2px 0 currentColor, 6px 0 currentColor, 10px 0 currentColor; /* for IE9+, ..., 3个点 */
+    animation: dot 4s infinite step-start both; /* for IE10+, ... */
+    *zoom: expression(this.innerHTML = '...'); /*  for IE7. 若无需兼容IE7, 此行删除 */
+}
+.dotting:before { content: '...'; } /* for IE8. 若无需兼容IE8, 此行以及下一行删除*/
+.dotting::before { content: ''; } /* for IE9+ 覆盖 IE8 */
+:root .dotting { margin-right: 8px; } /* for IE9+,FF,CH,OP,SF 占据空间*/
+
+@keyframes dot {
+    25% { box-shadow: none; }                                  /* 0个点 */
+    50% { box-shadow: 2px 0 currentColor; }                    /* 1个点 */
+    75% { box-shadow: 2px 0 currentColor, 6px 0 currentColor;  /* 2个点 */ }
+}
+
+
+/*加载旋转*/
+.revolve {
+  animation: myfirst 1s linear infinite normal;
+  /* Firefox: */
+  -moz-animation: myfirst 1s linear infinite normal;
+  /* Safari and Chrome: */
+  -webkit-animation: myfirst 1s linear infinite normal;
+  /* Opera: */
+  -o-animation: myfirst 1s linear infinite normal;
+}
+@keyframes myfirst {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes myfirst {
+  /* Safari and Chrome */
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+</style>
+</head>
+<body>
+<div>提交订单中<span class="dotting"></span></div>
+<!-- <div class="progress1">
+	<img src="dahao-logo.png">
+</div>
+
+<div class="progress2">
+	<img src="dahao-logo.png">
+</div> -->
+<div class="loading">
+  <img src="img/icon_loading.png" class='revolve'>
+</div>
+</body>
+</html>

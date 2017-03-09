@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Web Component</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <style>
+    /* 方法一 */
+    </style>
+</head>
+<body>
+<label>请输入北京今天空气质量：<input type="text"/></label>
+<button type="submit">确认提交</button>
+<div class="">您输入的值是：<p class="ha" style="display: inline-block;"><span>fine</span></p></div>
+<script>
+    var input = document.getElementsByTagName('input')[0];
+
+    var p = document.getElementsByTagName('p')[0];
+    var button = document.getElementsByTagName('button')[0];
+
+    const colors = ['red','blue','green'];
+    for(var i = 0; i < colors.length; i++){
+        console.log(colors[i]);
+    }
+
+    colors.forEach(color => {
+        console.log(color);
+    });
+
+/*    colors.forEach(function(color) {
+        console.log(color);
+    })*/
+
+
+    const cars = [
+        {model: 'Buick',price: 'cheap'},
+        {model: 'Camaro',price: 'expensive'}
+    ];
+
+/*    map可以用于汇总数组内各个元素的属性值，并输出相关信息
+    const model = cars.map(car => {
+        return car.model;
+    });
+    console.log(model);
+
+    const price = cars.map(car => {
+        return car.price;
+    });
+    console.log(price);
+*/
+
+    //渲染数据列表
+    const model = cars.map(car => {
+        return car.model;
+    });
+
+    const price = cars.map(car => {
+        return car.price;
+    });
+
+    const carsList = document.createElement('ul');
+
+    const aboutCars = cars.map(car => {
+        return `<li>${car.model} is ${car.price}</li>`;
+    });
+
+    aboutCars.forEach(car => {
+        carsList.innerHTML += car;
+    });
+
+    document.body.innerHTML = '';
+    document.body.appendChild(carsList);
+
+/*    const cars = [
+      {model: 'Buick', price: 'cheap'},
+      {model: 'Camaro', price: 'expensive'}
+    ];
+    const carsList = document.createElement('ul');
+
+     const aboutCars = cars.map(car => {
+       return `<li>${car.model} is ${car.price}</li>`;
+     });
+
+    aboutCars.forEach(car => {
+      carsList.innerHTML += car;
+    })
+    document.body.innerHTML = '';
+    document.body.appendChild(carsList);*/
+
+    const products = [
+    {name: 'cucumber', type: 'vegetable', quantity: 10, price: 1},
+    {name: 'banbana', type: 'fruit', quantity: 8,price: 15},
+    {name: 'cucumber', type: 'vegetabe', quantity: 25,price: 12},
+    {name: 'orange', type: 'fruit',quantity: 30,price: 8},
+    ];
+
+    let filteredProducts = [];
+    for(var i = 0; i < products.length; i++) {
+        if(products[i].type === 'fruit') {
+            filteredProducts.push(products[i]);
+        }
+    }
+    console.table(filteredProducts);
+
+    const fruit = products.filter(product => product.type === 'fruit');
+    console.table(fruit);
+
+    const veg = products.filter(product => product.type === 'vegetable' && product.quantity > 0 && product.price < 10);
+    console.table(veg);
+
+</script>
+</body>
+</html>

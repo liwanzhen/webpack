@@ -1,0 +1,431 @@
+// 首页
+
+extends _page.base
+
+- var PAGE_TITLE = 首页
+
+block main
+	.container
+		.jumbotron
+			// 顶部横幅广告			
+			img.banner-top.img-thumbnail(src="")
+		.banner.column
+			.row
+				.col-xs-12.col-md-6
+					// 轮播图
+					#myCarousel.carousel.slide(style="touch-action:pan-y;-webkit-user-select:none;-webkit-user-drag:none;webkit-tap-height-color:rgba(0,0,0,0);")
+						ol.carousel-indicators
+							li.active(data-target="#myCarousel",data-slide-to="0")
+							li(data-target="#myCarousel",data-slide-to="1")
+							li(data-target="#myCarousel",data-slide-to="2")
+						.carousel-inner(role="listbox")
+							.item.active
+								a(href="")
+									img.img-responsive.img-thumbnail(src="",alt="")
+								.carousel-caption
+									.ellipsis
+										span.text 轮播图名称
+								.layer-bg
+							.item
+								a(href="")
+									img.img-responsive.img-thumbnail(src="",alt="")
+								.carousel-caption
+									.ellipsis
+										span.text 轮播图名称
+								.layer-bg
+							.item
+								a(href="")
+									img.img-responsive.img-thumbnail(src="",alt="")
+								.carousel-caption
+									.ellipsis
+										span.text 轮播图名称
+								.layer-bg
+				.col-xs-12.col-md-6
+					// banner
+					.row
+						.col-xs-6
+							.box
+								a(href="")
+									img(data-src="",src="",data-type="cover",alt="")
+								.layer
+									h3.title.ellipsis
+										span.text 作品名
+						.col-xs-6
+							.box
+								a(href="")
+									img(data-src="",src="",data-type="cover",alt="")
+								.layer
+									h3.title.ellipsis
+										span.text 作品名
+						.col-xs-6
+							.box
+								a(href="")
+									img(data-src="",src="",data-type="cover",alt="")
+								.layer
+									h3.title.ellipsis
+										span.text 作品名
+						.col-xs-6
+							.box
+								a(href="")
+									img(data-src="",src="",data-type="cover",alt="")
+								.layer
+									h3.title.ellipsis
+										span.text 作品名
+		.circle.column
+			// 同人堂
+			.column-head
+				.pull-left
+					i.icon-circle
+					h3 热门同人堂
+				.pull-right
+					a.more 查看更多
+			.circle-content
+				.row
+					.col-xs-3.col-md-2
+						.circle-cover
+							a(href="")
+								img.img-circle.img-thumbnail(src="")
+							.badge 官方
+							.caption
+								a.circle-title 圈子名称
+					.col-xs-3.col-md-2
+						.circle-cover
+							a(href="")
+								img.img-circle.img-thumbnail(src="")
+							.badge 官方
+							.caption
+								a.circle-title 圈子名称
+					.col-xs-3.col-md-2
+						.circle-cover
+							a(href="")
+								img.img-circle.img-thumbnail(src="")
+							.badge 官方
+							.caption
+								a.circle-title 圈子名称
+					.col-xs-3.col-md-2
+						.circle-cover
+							a(href="")
+								img.img-circle.img-thumbnail(src="")
+							.badge 官方
+							.caption
+								a.circle-title 圈子名称
+					.col-xs-3.col-md-2
+						.circle-cover
+							a(href="")
+								img.img-circle.img-thumbnail(src="")
+							.badge 官方
+							.caption
+								a.circle-title 圈子名称
+					.col-xs-3.col-md-2
+						.circle-cover
+							a(href="")
+								img.img-circle.img-thumbnail(src="")
+							.badge 官方
+							.caption
+								a.circle-title 圈子名称
+		.hot-works.column
+			.column-head
+				.pull-left
+					i.icon-hot
+					h3 最火作品
+				.pull-right
+					a.more(href="") 查看更多
+			.hot-works-content
+				.row
+					.col-xs-6.col-xs-3
+						.work-img
+							a(href="",title="")
+								img.img-thumbnail(src="")
+						.captions
+							a(href="")
+								h3.title.ellipsis 我的作品
+							ul.data
+								li.pull-left
+									// 播放按钮
+									a(href="")
+										i.icon-play1
+										span 222
+								li.pull-right
+									// 留言按钮
+									a(href="")
+										i.icon-play1
+										span 333
+					.col-xs-6.col-xs-3
+						.work-img
+							a(href="",title="")
+								img.img-thumbnail(src="")
+						.captions
+							a(href="")
+								h3.title.ellipsis 我的作品
+							ul.data
+								li.pull-left
+									// 播放按钮
+									a(href="")
+										i.icon-play1
+										span 222
+								li.pull-right
+									// 留言按钮
+									a(href="")
+										i.icon-play1
+										span 333
+					.col-xs-6.col-xs-3
+						.work-img
+							a(href="",title="")
+								img.img-thumbnail(src="")
+						.captions
+							a(href="")
+								h3.title.ellipsis 我的作品
+							ul.data
+								li.pull-left
+									// 播放按钮
+									a(href="")
+										i.icon-play1
+										span 222
+								li.pull-right
+									// 留言按钮
+									a(href="")
+										i.icon-play1
+										span 333
+					.col-xs-6.col-xs-3
+						.work-img
+							a(href="",title="")
+								img.img-thumbnail(src="")
+						.captions
+							a(href="")
+								h3.title.ellipsis 我的作品
+							ul.data
+								li.pull-left
+									// 播放按钮
+									a(href="")
+										i.icon-play1
+										span 222
+								li.pull-right
+									// 留言按钮
+									a(href="")
+										i.icon-play1
+										span 333
+						.col-xs-6.col-xs-3
+						.work-img
+							a(href="",title="")
+								img.img-thumbnail(src="")
+						.captions
+							a(href="")
+								h3.title.ellipsis 我的作品
+							ul.data
+								li.pull-left
+									// 播放按钮
+									a(href="")
+										i.icon-play1
+										span 222
+								li.pull-right
+									// 留言按钮
+									a(href="")
+										i.icon-play1
+										span 333
+					.col-xs-6.col-xs-3
+						.work-img
+							a(href="",title="")
+								img.img-thumbnail(src="")
+						.captions
+							a(href="")
+								h3.title.ellipsis 我的作品
+							ul.data
+								li.pull-left
+									// 播放按钮
+									a(href="")
+										i.icon-play1
+										span 222
+								li.pull-right
+									// 留言按钮
+									a(href="")
+										i.icon-play1
+										span 333
+					.col-xs-6.col-xs-3
+						.work-img
+							a(href="",title="")
+								img.img-thumbnail(src="")
+						.captions
+							a(href="")
+								h3.title.ellipsis 我的作品
+							ul.data
+								li.pull-left
+									// 播放按钮
+									a(href="")
+										i.icon-play1
+										span 222
+								li.pull-right
+									// 留言按钮
+									a(href="")
+										i.icon-play1
+										span 333
+					.col-xs-6.col-xs-3
+						.work-img
+							a(href="",title="")
+								img.img-thumbnail(src="")
+						.captions
+							a(href="")
+								h3.title.ellipsis 我的作品
+							ul.data
+								li.pull-left
+									// 播放按钮
+									a(href="")
+										i.icon-play1
+										span 222
+								li.pull-right
+									// 留言按钮
+									a(href="")
+										i.icon-play1
+										span 333
+		.recent-works.column
+			.column-head
+				.pull-left
+					i.icon-new
+					h3 最新作品
+				.pull-right
+					a.more(href="") 查看更多
+			.recent-works-content
+				.row
+					.col-xs-6.col-xs-3
+						.work-img
+							a(href="",title="")
+								img.img-thumbnail(src="")
+						.captions
+							a(href="")
+								h3.title.ellipsis 我的作品
+							ul.data
+								li.pull-left
+									// 播放按钮
+									a(href="")
+										i.icon-play1
+										span 222
+								li.pull-right
+									// 留言按钮
+									a(href="")
+										i.icon-play1
+										span 333
+					.col-xs-6.col-xs-3
+						.work-img
+							a(href="",title="")
+								img.img-thumbnail(src="")
+						.captions
+							a(href="")
+								h3.title.ellipsis 我的作品
+							ul.data
+								li.pull-left
+									// 播放按钮
+									a(href="")
+										i.icon-play1
+										span 222
+								li.pull-right
+									// 留言按钮
+									a(href="")
+										i.icon-play1
+										span 333
+					.col-xs-6.col-xs-3
+						.work-img
+							a(href="",title="")
+								img.img-thumbnail(src="")
+						.captions
+							a(href="")
+								h3.title.ellipsis 我的作品
+							ul.data
+								li.pull-left
+									// 播放按钮
+									a(href="")
+										i.icon-play1
+										span 222
+								li.pull-right
+									// 留言按钮
+									a(href="")
+										i.icon-play1
+										span 333
+					.col-xs-6.col-xs-3
+						.work-img
+							a(href="",title="")
+								img.img-thumbnail(src="")
+						.captions
+							a(href="")
+								h3.title.ellipsis 我的作品
+							ul.data
+								li.pull-left
+									// 播放按钮
+									a(href="")
+										i.icon-play1
+										span 222
+								li.pull-right
+									// 留言按钮
+									a(href="")
+										i.icon-play1
+										span 333
+						.col-xs-6.col-xs-3
+						.work-img
+							a(href="",title="")
+								img.img-thumbnail(src="")
+						.captions
+							a(href="")
+								h3.title.ellipsis 我的作品
+							ul.data
+								li.pull-left
+									// 播放按钮
+									a(href="")
+										i.icon-play1
+										span 222
+								li.pull-right
+									// 留言按钮
+									a(href="")
+										i.icon-play1
+										span 333
+					.col-xs-6.col-xs-3
+						.work-img
+							a(href="",title="")
+								img.img-thumbnail(src="")
+						.captions
+							a(href="")
+								h3.title.ellipsis 我的作品
+							ul.data
+								li.pull-left
+									// 播放按钮
+									a(href="")
+										i.icon-play1
+										span 222
+								li.pull-right
+									// 留言按钮
+									a(href="")
+										i.icon-play1
+										span 333
+					.col-xs-6.col-xs-3
+						.work-img
+							a(href="",title="")
+								img.img-thumbnail(src="")
+						.captions
+							a(href="")
+								h3.title.ellipsis 我的作品
+							ul.data
+								li.pull-left
+									// 播放按钮
+									a(href="")
+										i.icon-play1
+										span 222
+								li.pull-right
+									// 留言按钮
+									a(href="")
+										i.icon-play1
+										span 333
+					.col-xs-6.col-xs-3
+						.work-img
+							a(href="",title="")
+								img.img-thumbnail(src="")
+						.captions
+							a(href="")
+								h3.title.ellipsis 我的作品
+							ul.data
+								li.pull-left
+									// 播放按钮
+									a(href="")
+										i.icon-play1
+										span 222
+								li.pull-right
+									// 留言按钮
+									a(href="")
+										i.icon-play1
+										span 333

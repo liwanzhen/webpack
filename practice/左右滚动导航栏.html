@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title> </title>
+        <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <style>
+            .navlist {
+                position: absolute;
+                top: 10px;
+            }
+
+            a {
+                text-decoration: none;
+                color: #fff;
+            }
+
+            .navlist a {
+                margin-left: 60px;
+                color: #666;
+            }
+
+            .expand {
+                height: 0;
+                background-color: #333d4d;
+                overflow: hidden;
+                position: relative;
+                top: 30px;
+                width: 100%;
+            }
+
+            .expand:after,.navlist:after {
+                display: table;
+                content: '';
+                clear: both;
+            }
+
+            .expdiv {
+                height: 130px;
+                width: 500%;
+            }
+
+            .expdiv-list {
+                width: 20%;
+                text-align: center;
+                float: left;
+                line-height: 110px;
+                color: #fff;
+            }
+
+            .close-btn {
+                width: 0;
+                position: absolute;
+                left: 50%;
+                bottom: 0;
+                cursor: pointer;
+                margin-left: -10px;
+                border-bottom: 10px solid #fff;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                border-top: 0;
+            }
+
+        </style>
+    <script type="text/javascript">
+    $(function(){
+
+        $('#menuList').on("click",'a',function(){
+            if($(this).hasClass("btn-class")){
+                $("#expandZone #close").click();
+                return false;
+            }
+            var curIndex=$(this).index(),mlValue="-"+curIndex*100+"%";
+            if($("#expandZone").hasClass("active")) {
+                $("#expandZone .expdiv").animate({marginLeft: mlValue})
+            }
+            else{
+                $("#expandZone .expdiv").css({marginLeft: mlValue});
+                $("#expandZone").animate({height: "130px"}).addClass("active");
+            }
+            $(this).addClass("btn-active").siblings().removeClass("btn-active");
+            return false;
+        })
+
+        $("#expandZone #closeBtn").on("click",function(){
+            $("#expandZone").animate({height: "0px"},function(){
+                $(this).removeClass("active");
+                $("#menuList .btn-active").removeClass("btn-active");
+            })
+            return false;
+        })
+
+    })
+    </script>
+    </head>
+    <body>
+    <div id="menuList" class="navlist">
+        <a href="#">111</a><a href="#">222</a><a href="#">333</a><a href="#">444</a><a href="#">555</a>
+    </div>
+    <div class="expand" id="expandZone">
+        <div class="expdiv">
+            <div class="expdiv-list">
+                <a href="#">111</a>
+            </div>
+            <div class="expdiv-list">
+                <a href="#">111</a><a href="#">222</a>
+            </div>
+            <div class="expdiv-list">
+                <a href="#">111</a><a href="#">222</a><a href="#">333</a>
+            </div>
+            <div class="expdiv-list">
+                <a href="#">111</a><a href="#">222</a><a href="#">333</a><a href="#">444</a>
+            </div>
+            <div class="expdiv-list">
+                <a href="#">111</a><a href="#">222</a><a href="#">333</a><a href="#">444</a><a href="#">555</a>
+            </div>
+        </div>
+        <div id="closeBtn" class="close-btn"></div>
+    </div>
+
+    </body>
+</html>

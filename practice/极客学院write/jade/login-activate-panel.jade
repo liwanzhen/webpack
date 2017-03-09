@@ -1,0 +1,15 @@
+// 面板登录-激活页
+
+extends login-bind-panel
+
+block status-btn
+	.form-group
+		a(href="")
+			button.btn.btn-default(type="button",name="bind") 登录
+	.form-group
+		a(href="")
+			button.btn.btn-default(type="button",name="register-bind") 完善注册信息
+block status-alert
+	.alert.alert-danger.text-center
+		i.icon-alert
+		p.status-alert 当前状态说明

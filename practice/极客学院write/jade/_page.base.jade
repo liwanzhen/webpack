@@ -1,0 +1,50 @@
+extends _page.html
+
+block body
+	// 基本页面定义
+	.header
+		// 公用头部
+		nav.navbar.navbar-default
+			.container
+				.navbar-header
+					a(href="#").navbar-brand
+						// 网站 Logo
+						img(src="")
+					ul.nav.navbar-nav
+						li
+							a(href="#") 首页
+						li
+							a(href="#") 作品
+						li
+							a(href="#") 圈子
+						li
+							a(href="#") 创作
+					form.navbar-form.navbarleft(role="search")
+						.from-groupe
+							input.from-control(type="text",name="keywords",placeholder="")
+							button.btn.btn-default
+					ul.nav.navbar-nav.navbar-right
+						block login_status
+							li.user_center
+								a(href="")
+									img.user_img(src="")
+							li.user_mesg
+								a(href="")
+									img(src="")
+		block modal
+	block main
+	.footer
+		// 公用尾部
+		ul
+			li
+				a(href="") 首页
+			li
+				a(href="") 关于我们
+			li
+				a(href="") 加入我们
+			li
+				a(href="") 网站协议
+			li
+				a(href="") APP
+		p ©2015大好网站版权所有 侵权必究 鄂ICP备15011513号-1
+				

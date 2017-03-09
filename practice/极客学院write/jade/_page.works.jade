@@ -1,0 +1,274 @@
+// 个人中心类作品列表页
+
+extends _page.grade
+
+block main
+	block user-center
+		.container
+			// 巨幕页头
+			.jumbotron
+				.media
+					.media-left
+						a(href="#")
+							// 用户头像
+							img(src="").media-object
+					.media-body
+						h1.media-heading 用户名
+						block user
+							div.my_center
+								p 签名档
+								a(href="#") 编辑
+								p (未验证用户，无法使用在线编辑器及每日任务，请完善注册资料)
+								a(href="#") 现在去完善
+								ul.user-level
+									// 用户等级
+									li
+										//会员等级
+										a(href="")
+											img(src="")
+										a(href="")
+											button.btn.btn-default LV24
+									li
+										//创作等级
+										a(href="")
+											img(src="")
+										a(href="")
+											button.btn.btn-default LV24
+			.row
+				// 左边栏
+				aside.col-xs-3
+					.row
+						block signin
+							// 签到
+							.col-xs-12
+								.row
+									.col-xs-6
+										a(href="#") 99999
+										a(href="#")
+											img(src="" alt="coin")
+									.col-xs-6
+										a(href="#") 88888
+										a(href="#")
+											img(src="" alt="luobo")
+								form.sign
+									button.btn.btn-default.btn-lg.btn-block 签到
+						// 关注
+						.col-xs-12
+							.row
+								.col-xs-6
+									a(href="#") 99999
+									a(href="#") 关注
+								.col-xs-6
+									a(href="#") 88888
+									a(href="#") 粉丝
+						// 圈子
+						.col-xs-12
+							h3 关注的圈子
+							.row
+								.col-xs-6
+									a(href="#")
+										img(src="",alt="")
+									a(href="#") 圈名
+								.col-xs-6
+									a(href="#")
+										img(src="",alt="")
+									a(href="#") 圈名
+				// 右内容
+				section.col-xs-9
+					// 我的作品块
+					block user-nav
+						ul#myTab.user-nav.nav.nav-tabs.row.thumbnail
+							// 个人中心导航
+							li.active.col-xs-4
+								a(href="#works",data-toggle="tab") 我的作品
+							li.col-xs-4
+								a(href="#collect",data-toggle="tab") 我的收藏
+							li.col-xs-4
+								a(href="#history",data-toggle="tab") 我的足迹
+					block features
+						#myTabContent.tab-content.row
+							// Tab
+							// 列表
+							#works.tab-pane.active.thumnnail
+								// 我的作品块
+								block buttons
+									// 功能按钮
+									.feature_btn
+										button.btn.btn-default.pull-right 草稿箱
+										button.btn.btn-default.pull-right 管理作品
+								.row
+									// 作品列表
+									.col-xs-4
+										.work-img
+											a(href="",title="")
+												img(src="")
+										.captions
+											a(href="")
+												h3.title.ellipsis 我的作品
+											ul.data
+												li.pull-left
+													// 播放按钮
+													a(href="")
+														i.icon-play1
+														span 222
+												li.pull-right
+													// 留言按钮
+													a(href="")
+														i.icon-play1
+														span 333
+									.col-xs-4
+										.work-img
+											a(href="",title="")
+												img(src="")
+										.captions
+											a(href="")
+												h3.title.ellipsis 我的作品
+											ul.data
+												li.pull-left
+													// 播放按钮
+													a(href="")
+														i.icon-play1
+														span 222
+												li.pull-right
+													// 留言按钮
+													a(href="")
+														i.icon-play1
+														span 222
+									.col-xs-4
+										.work-img
+											a(href="",title="")
+												img(src="")
+										.captions
+											a(href="")
+												h3.title.ellipsis 我的作品
+											ul.data
+												li.pull-left
+													// 播放按钮
+													a(href="")
+														i.icon-play1
+														span 222
+												li.pull-right
+													// 留言按钮
+													a(href="")
+														i.icon-play1
+														span 222
+							block collect
+								//我的收藏块
+								#collect.tab-pane.thumnnail
+									.row
+										// 作品列表
+										.col-xs-4
+											.work-img
+												a(href="",title="")
+													img(src="")
+											.captions
+												a(href="")
+													h3.title.ellipsis 我的收藏
+												ul.data
+													li.pull-left
+														// 播放按钮
+														a(href="")
+															i.icon-play1
+															span 222
+													li.pull-right
+														// 留言按钮
+														a(href="")
+															i.icon-play1
+															span 222
+										.col-xs-4
+											.work-img
+												a(href="",title="")
+													img(src="")
+											.captions
+												a(href="")
+													h3.title.ellipsis 我的收藏
+												ul.data
+													li.pull-left
+														// 播放按钮
+														a(href="")
+															i.icon-play1
+															span 222
+													li.pull-right
+														// 留言按钮
+														a(href="")
+															i.icon-play1
+															span 222
+										.col-xs-4
+											.work-img
+												a(href="",title="")
+													img(src="")
+											.captions
+												a(href="")
+													h3.title.ellipsis 我的收藏
+												ul.data
+													li.pull-left
+														// 播放按钮
+														a(href="")
+															i.icon-play1
+															span 222
+													li.pull-right
+														// 留言按钮
+														a(href="")
+															i.icon-play1
+															span 222
+							block history
+								//我的足迹块
+								#history.tab-pane.thumnnail
+									.row
+										// 作品列表
+										.col-xs-4
+											.work-img
+												a(href="",title="")
+													img(src="")
+											.captions
+												a(href="")
+													h3.title.ellipsis 我的足迹
+												ul.data
+													li.pull-left
+														// 播放按钮
+														a(href="")
+															i.icon-play1
+															span 222
+													li.pull-right
+														// 留言按钮
+														a(href="")
+															i.icon-play1
+															span 222
+										.col-xs-4
+											.work-img
+												a(href="",title="")
+													img(src="")
+											.captions
+												a(href="")
+													h3.title.ellipsis 我的足迹
+												ul.data
+													li.pull-left
+														// 播放按钮
+														a(href="")
+															i.icon-play1
+															span 222
+													li.pull-right
+														// 留言按钮
+														a(href="")
+															i.icon-play1
+															span 222
+										.col-xs-4
+											.work-img
+												a(href="",title="")
+													img(src="")
+											.captions
+												a(href="")
+													h3.title.ellipsis 我的足迹
+												ul.data
+													li.pull-left
+														// 播放按钮
+														a(href="")
+															i.icon-play1
+															span 222
+													li.pull-right
+														// 留言按钮
+														a(href="")
+															i.icon-play1
+															span 222
+					include _paging
+						// 分页
