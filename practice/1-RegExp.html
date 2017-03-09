@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Web Component</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<style>
+</style>
+</head>
+<body>
+<input type="text"/>
+<button type="submit">提交</button>
+<p class="ha"></p>
+<script>
+// \b 单词边界 匹配单词边界
+
+var reg =  /\bis\b/g;
+
+console.log('He is a boy, This is a dog.'.replace(reg,'IS'));
+
+// g global 全局搜索
+var reg = new RegExp('\\bis\\b','g');
+'He is a boy, This is a dog.'.replace(reg,'IS');
+//"He IS a boy, This IS a dog."
+
+// i ignore 忽略大小写
+'He is a boy, Is he?'.replace(/\bis\b/gi,'0')
+//"He 0 a boy, 0 he?"
+
+// m multiplines 多行搜索
+
+/*元字符
+- 原义文本字符
+- 元字符
+
+元字符是在正则表达式中有特殊含义的非字母字符
+- 例如：* + ? $ ^ . | \ () {} []
+\t 水平制表符 \v 垂直制表符 \n 换行符 \r 回车符 \0 空字符 \f 换页符 \cX ctrl+X
+
+字符类
+- 可以使用元字符[]来构建一个简单的类
+- 所谓类是指符合某些特征的对象，一个泛指，而不是特指某个字符
+- 表达式[abc]把字符a或b或c归为一类，表达式可以匹配这类的字符*/
+
+'a1b2c3d4'.replace(/[abc]/g,'X');
+//"X1X2X3d4"
+
+/*字符类取反
+- 使用元字符^创建反向类/负向类
+- 方向类的意思是不属于某类的内容
+- 表达式[^abc]表示不是字符a或b或c的内容*/
+
+'a1b2c3d4'.replace(/[^abc]/g,'X');
+//"aXbXcXXX"
+
+/*范围类
+- 我们可以使用[a-z]来连接两个字符表示从a到z的任意字符
+- 这是个闭区间，也就是包含a和z本身的
+- 在[]z组成的类内部是可以连写的[a-zA-Z]*/
+
+'a1b2c3d4z9'.replace(/[a-z]/g,'Q');
+//"Q1Q2Q3Q4Q9"
+'a1b2c3d4z9'.replace(/[a-zA-Z]/g,'Q');
+//"Q1Q2Q3Q4Q9"
+'2017-03-09'.replace(/[0-9]/g,'Q');
+//"QQQQ-QQ-QQ"
+'2017-03-09'.replace(/[0-9-]/g,'Q'); //要匹配-
+//"QQQQQQQQQQ"
+
+/*预定义类
+.    [^\r\n]           除了回车符和换行符之外的所有字符
+\d   [0-9]             数字字符
+\D   [^0-9]            非数字字符
+\s   [\t\n\x0B\f\r]    空白符
+\S   [^\t\n\x0B\f\r]   非空白符
+\w   [a-zA-Z_0-9]      单词字符（字母，数字下划线）
+\W   [^a-zA-Z_0-9]     非单词字符*/
+
+</script>
+</body>
