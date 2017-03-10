@@ -12,69 +12,287 @@
 <button type="submit">提交</button>
 <p class="ha"></p>
 <script>
-// \b 单词边界 匹配单词边界
 
-var reg =  /\bis\b/g;
+- \b 单词边界 匹配单词边界
 
-console.log('He is a boy, This is a dog.'.replace(reg,'IS'));
+	var reg =  /\bis\b/g;
 
-// g global 全局搜索
-var reg = new RegExp('\\bis\\b','g');
-'He is a boy, This is a dog.'.replace(reg,'IS');
-//"He IS a boy, This IS a dog."
+	console.log('He is a boy, This is a dog.'.replace(reg,'IS'));
 
-// i ignore 忽略大小写
-'He is a boy, Is he?'.replace(/\bis\b/gi,'0')
-//"He 0 a boy, 0 he?"
+- g global 全局搜索
 
-// m multiplines 多行搜索
+	var reg = new RegExp('\\bis\\b','g');
+	'He is a boy, This is a dog.'.replace(reg,'IS');
+	//"He IS a boy, This IS a dog."
 
-/*元字符
+- i ignore 忽略大小写
+
+	'He is a boy, Is he?'.replace(/\bis\b/gi,'0')
+	//"He 0 a boy, 0 he?"
+
+- m multiplines 多行搜索
+
+元字符
 - 原义文本字符
 - 元字符
 
 元字符是在正则表达式中有特殊含义的非字母字符
-- 例如：* + ? $ ^ . | \ () {} []
-\t 水平制表符 \v 垂直制表符 \n 换行符 \r 回车符 \0 空字符 \f 换页符 \cX ctrl+X
+	- 例如：* + ? $ ^ . | \ () {} []
+	- \t 水平制表符
+	- \v 垂直制表符
+	- \n 换行符
+	- \r 回车符
+	- \0 空字符
+	- \f 换页符
+	- \cX ctrl+X
 
 字符类
-- 可以使用元字符[]来构建一个简单的类
-- 所谓类是指符合某些特征的对象，一个泛指，而不是特指某个字符
-- 表达式[abc]把字符a或b或c归为一类，表达式可以匹配这类的字符*/
+	- 可以使用元字符[]来构建一个简单的类
+	- 所谓类是指符合某些特征的对象，一个泛指，而不是特指某个字符
+	- 表达式[abc]把字符a或b或c归为一类，表达式可以匹配这类的字符
 
-'a1b2c3d4'.replace(/[abc]/g,'X');
-//"X1X2X3d4"
+	'a1b2c3d4'.replace(/[abc]/g,'X');
+	//"X1X2X3d4"
 
-/*字符类取反
-- 使用元字符^创建反向类/负向类
-- 方向类的意思是不属于某类的内容
-- 表达式[^abc]表示不是字符a或b或c的内容*/
+字符类取反
+	- 使用元字符^创建反向类/负向类
+	- 方向类的意思是不属于某类的内容
+	- 表达式[^abc]表示不是字符a或b或c的内容
 
-'a1b2c3d4'.replace(/[^abc]/g,'X');
-//"aXbXcXXX"
+	'a1b2c3d4'.replace(/[^abc]/g,'X');
+	//"aXbXcXXX"
 
-/*范围类
-- 我们可以使用[a-z]来连接两个字符表示从a到z的任意字符
-- 这是个闭区间，也就是包含a和z本身的
-- 在[]z组成的类内部是可以连写的[a-zA-Z]*/
+范围类
+	- 我们可以使用[a-z]来连接两个字符表示从a到z的任意字符
+	- 这是个闭区间，也就是包含a和z本身的
+	- 在[]z组成的类内部是可以连写的[a-zA-Z]
 
-'a1b2c3d4z9'.replace(/[a-z]/g,'Q');
-//"Q1Q2Q3Q4Q9"
-'a1b2c3d4z9'.replace(/[a-zA-Z]/g,'Q');
-//"Q1Q2Q3Q4Q9"
-'2017-03-09'.replace(/[0-9]/g,'Q');
-//"QQQQ-QQ-QQ"
-'2017-03-09'.replace(/[0-9-]/g,'Q'); //要匹配-
-//"QQQQQQQQQQ"
+	'a1b2c3d4z9'.replace(/[a-z]/g,'Q');
+	//"Q1Q2Q3Q4Q9"
+	'a1b2c3d4z9'.replace(/[a-zA-Z]/g,'Q');
+	//"Q1Q2Q3Q4Q9"
+	'2017-03-09'.replace(/[0-9]/g,'Q');
+	//"QQQQ-QQ-QQ"
+	'2017-03-09'.replace(/[0-9-]/g,'Q'); //要匹配-
+	//"QQQQQQQQQQ"
 
-/*预定义类
-.    [^\r\n]           除了回车符和换行符之外的所有字符
-\d   [0-9]             数字字符
-\D   [^0-9]            非数字字符
-\s   [\t\n\x0B\f\r]    空白符
-\S   [^\t\n\x0B\f\r]   非空白符
-\w   [a-zA-Z_0-9]      单词字符（字母，数字下划线）
-\W   [^a-zA-Z_0-9]     非单词字符*/
+预定义类
+	.    [^\r\n]           除了回车符和换行符之外的所有字符
+	\d   [0-9]             数字字符
+	\D   [^0-9]            非数字字符
+	\s   [\t\n\x0B\f\r]    空白符
+	\S   [^\t\n\x0B\f\r]   非空白符
+	\w   [a-zA-Z_0-9]      单词字符（字母，数字下划线）
+	\W   [^a-zA-Z_0-9]     非单词字符
+
+// /ab\d./ ab数字任意字符串
+
+边界匹配字符
+	- ^ 以xxx开始
+	- $ 以xxx结束
+	- \b 单词边界
+	- \B 非单词边界
+	'This is a boy'.replace(/is/g,'0')
+	//"Th0 0 a boy"
+	'This is a boy'.replace(/is\b/g,'0')
+	//"Th0 0 a boy"
+	'This is a boy'.replace(/\bis\b/g,'0')
+	//"This 0 a boy"
+	'This is a boy'.replace(/\Bis/g,'0')
+	//"Th0 is a boy"
+
+	'@123@abc@'.replace(/@./g,'Q');
+	//"Q23Qbc@"
+	'@123@abc@'.replace(/^@./g,'Q');
+	//"Q23@abc@"
+	'@123@abc@'.replace(/.@$/g,'Q');
+	//"@123@abQ"
+
+	str.replace(/^@\d/gm,'X');    // m
+
+量词
+	我们希望匹配一个连续出现20次数字的字符串 \d{20}
+	?      出现零次或一次(最多一次)
+	+      出现一次或多次
+	*      任意次
+	{n}    出现n次
+	{n,m}  出现n到m次
+	{n,}   至少出现n次
+
+
+贪婪模式: 尽可能多的匹配
+	\d{3,6}
+
+	'12345678'.replace(/\d{6}/g,'X');
+	//"X78"
+
+	让正则表达式尽可能少的匹配，也就是说一旦成功匹配不再继续尝试
+	做法很简单，在量词后加上?即可
+
+	'123456789'.match(/\d{3}?/g);
+	//["123", "456", "789"]
+
+	'12345678'.replace(/\d{3,6}?/g,'X');
+	//"XX78"
+
+分组
+	匹配字符串li n次
+	使用()可以达到分组的功能，使量词作用于分组
+(li){3}
+
+	'a1b2c3d4'.replace(/([a-z]\d){3}/g,'X');
+	//"Xd4"
+
+或
+	使用|可以达到或的效果
+
+	'ByronsperByrCasper'.replace(/Byr(on|Ca)sper/g,'X');
+	//"XX"
+	'liwanzhen'.replace(/li(wa|oo)nzhen/g,'X');
+
+/*反向引用*/
+	'2015-12-25'.replace(/(\d{4})-(\d{2})-(\d{2})/g,'$2-$3-$1');
+	//"12-25-2015"
+
+忽略分组
+	只需要在分组内加上?:就可以
+		(?:Byron).(ok)
+
+前瞻
+	- 正则表达式从文本头部向尾部开始解析，文本尾部方向，成为“前”
+	- 前瞻就是在正则表达式匹配到规则的时候，向前检查是否符合断言，后顾/后瞻方向相反
+	- javascript不支持后顾
+	= 符合和不符合特定断言称为肯定/正向匹配和否定/负向匹配
+
+	正向前瞻    exp(?=assert)
+	负向前瞻    exp(?!assert)
+
+	'a2*3'.replace(/\w(?=\d)/g,'X');  //前瞻只是参与判断但并不参与替换
+	//"X2*3"
+
+JS对象属性
+	- LastIndex：是当前表达式匹配内容的最后一个字符的下一个位置
+	- source：正则表达式的文本字符串
+
+RegExp.prototype.test(str);
+- 用于测试字符串参数中是否存在匹配正则表达式模式的字符串
+- 如果存在则返回true，否则返回false
+
+	var reg1 = /\w/;
+	reg1.test('a');
+	//true
+
+	var reg2 = /\w/g;
+	reg2.test('ab');
+	//true 执行第1次
+	reg2.test('ab');
+	//true 执行第2次
+	reg2.test('ab');
+	//false 执行第3次
+	reg2.test('ab');
+	//true 执行第4次
+	while(reg2.test('ab')){
+	console.log(reg2.lastIndex);
+	}
+	//2
+
+RegExp.prototype.exec(str)
+	- 使用正则表达式模式对字符串执行搜索，并更新全局RegExp对象的属性以反映匹配的结果
+	- 如果没有匹配的文本则返回null，否则返回一个结果数组：
+		- index 声明匹配文本的第一个字符的位置
+		- input 存放被检索的字符串string
+
+非全局调用
+	- 调用非全局的RegExp对象的exec()时，返回数组
+	- 第一个元素是与正则表达式相匹配的文本
+	- 第二个元素是与RegExpObject的第一个表达式相匹配的文本（如果有的话）
+	- 第三个元素是与RegExp对象的第二个子表达式相匹配的文本（如果有的话），以此类推
+
+	var reg3 = /\d(\w)\d/;
+	var reg4 = /\d(\w)\d/g;
+	var ts = '$1a2b3c4d5e';
+	var ret = reg3.exec(ts);
+	console.log(reg3.lastIndex + '\t' + ret.index + '\t' + ret.toString());
+	console.log(reg3.lastIndex + '\t' + ret.index + '\t' + ret.toString());
+	//0	1	1a2,a
+	//0	1	1a2,a
+	console.log(reg4.lastIndex + '\t' + ret.index + '\t' + ret.toString());
+	//0	1	1a2,a
+	var reg3 = /\d(\w)(\w)\d/;
+	var ts = '$1azz2bb3cy4dd5ee';
+	var ret = reg3.exec(ts);
+	console.log(reg3.lastIndex + '\t' + ret.index + '\t' + ret.toString());
+	//0	5	2bb3,b,b
+
+	var reg4 = /\d(\w)(\w)\d/g;
+	var ts = '$1az2bb3cy4dd5ee';
+	while(ret = reg4.exec(ts)){
+	 console.log(reg4.lastIndex + '\t' + ret.index + '\t' + ret.toString());
+	}
+	// 5	1	1az2,a,z
+	// 11	7	3cy4,c,y
+
+String.prototype.search(reg);
+	- search()方法用于检索字符串中指定的子字符串，或检索与正则表达式相匹配的子字符串
+	- 方法返回第一个匹配结果index，查找不到返回-1
+	- search()方法不执行全局匹配，它将忽略标志个，并且总是从字符串的开始进行检索
+
+	'a1b2c3d4'.search('1');
+	//1
+	'a1b2c3d4'.search('10');
+	//-1
+	'a1b2c3d4'.search(/1/);
+	//1
+	'a1b2c3d4'.search(/1/g);
+	//1
+
+String.prototype.match(reg)
+- match()方法将检索字符串，以找到一个或多个regexp匹配的文本
+- regexp 是否具有标志g对结果影响很大
+
+非全局调用
+- 如果regexp没有标志g，那么match()方法就只能在字符串中执行一次匹配
+- 如果没有找到任何匹配的文本，将返回null
+- 否则它将返回一个数组，其中存放了与它找打的匹配文本有关的信息
+
+- 返回数组的第一个元素存放的是匹配文本，而其余的元素存放的是与正则表达式的子表达式匹配的文本
+- 除了常规的数组元素之外，返回的数组还含有2个对象属性
+	index声明匹配文本的起始字符在字符串的位置
+	input声明对stringObject的引用
+
+全局调用
+- 如果regexp具有标志g则match()方法将执行全局检索，找到字符串中的所有匹配子字符串
+	没有找到任何匹配的字符串，则返回null
+	如果找到了一个或多个匹配字符串，则返回一个数组
+- 数组元素中存放的是字符串中所有匹配子串，而且没有index属性或input属性
+
+String.prototype.split(reg);
+- 我们经常使用split方法把字符串分割为字符数组
+	'a,b,c,d'.split(','); //["a", "b", "c", "d"]
+	//在逗号处分割且去掉逗号
+- 在一些复杂的分割情况下我们可以使用正则表达式解决
+	'a1b2c3d4'.split(/\d/);//["a", "b", "c", "d", ""]
+
+String.prototype.replace('a','A')
+- String.prototype.replace(str,replaceStr)
+- String.prototype.replace(reg,replaceStr)
+- String.prototype.replace(reg,function)
+	function参数含义
+	- function会在每次匹配替换的时候调用，有四个参数
+	1.匹配字符串
+	2.正则表达式分组内容，没有分组则没有该参数
+	3.匹配项在字符串中的index
+	4.原字符串
+
+	//'a1b1c1'.replace(/1/g,'2');    //"a2b2c2"
+	'a1b2c3d4e5'.replace(/\d/g,function(macth,index,origin){
+		console.log(index);
+		return parseInt(match) + 1;
+	});    //fatal
+	'a1b2c3d4e5'.replace(/(\d)(\w)(\d)/g,function(match,group1,group2,group3,index,origin){
+		console.log(index);
+		return group1 + group2;
+	});    //"a1bc3de5"
 
 </script>
 </body>
