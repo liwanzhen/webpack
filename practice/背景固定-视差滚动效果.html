@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>视差滚动效果</title>
+    <link rel="stylesheet" href="../../@plugins/zxx/zxx-reset.css">
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 60px;
+            background-color: #fff;
+            box-shadow: 1px 1px 10px rgba(0,0,0,.3);
+            opacity: 0.8;
+        }
+
+        .container {
+            height: 100%;
+        }
+
+        .bg {
+            min-height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        .cl {
+            text-align: center;
+            min-height: 100%;
+        }
+
+        .cl:after {
+            content: '';
+            display: inline-block;
+            vertical-align: middle;
+            height: 100%;
+        }
+
+        .cl p {
+            text-align: center;
+        }
+
+        .bg1 {
+            background-image: url(banner-2.jpg);
+        }
+
+        .bg2 {
+            background-image: url(banner-3.jpg);
+        }
+
+        .bg3 {
+            background-image: url(banner-5.jpg);
+        }
+
+        .bg4 {
+            background-image: url(u309.jpg);
+        }
+
+        .cl1 {
+            background-color: #99a478;
+        }
+
+        .cl2 {
+            background-color: #b4d7a8;
+        }
+
+        .cl3 {
+            background-color: #3d3536;
+        }
+    </style>
+</head>
+<body>
+    <header></header>
+    <div class="container">
+        <div class="bg bg1"></div>
+        <div class="cl cl1"></div>
+        <div class="bg bg2"></div>
+        <div class="cl cl2"></div>
+        <div class="bg bg3"></div>
+        <div class="cl cl3"></div>
+        <div class="bg bg4"></div>
+    </div>
+</body>
+</html>

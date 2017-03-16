@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <input type="" name="">
+    <button>ok</button>
+    <div></div>
+    <script type="text/javascript">
+        //q1
+        (function() {
+            var ipt = document.getElementsByTagName('input')[0],
+                btn = document.getElementsByTagName('button')[0],
+                div = document.getElementsByTagName('div')[0],
+                obj = {};
+            document.addEventListener('keyup', function(e) {
+                if (e.keyCode === 13) {
+                    btn.click();
+                }
+            });
+
+            btn.addEventListener('click', function(e) {
+                var temp;
+                obj = temp = {};
+                var v = ipt.value;
+                if (v === "") {
+                    div.innerHTML = ('no input!');
+                } else {
+                    var arr = v.split(/[, _]/);
+                    console.log(arr);
+                    for (var i = 0; i < arr.length; i++) {
+                        temp[arr[i]] = {};
+                        temp = temp[arr[i]];
+                    }
+                    div.innerHTML = ('obj = ' + JSON.stringify(obj));
+                }
+            });
+        }());
+        //q2
+    </script>
+</body>
+</html>

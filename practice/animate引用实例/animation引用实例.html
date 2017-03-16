@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>animation</title>
+		<script src="jquery-1.10.2.min.js"></script>
+		<link rel="stylesheet" href="animate.min.css" />
+		<link rel="stylesheet" href="style.css" />
+		<style type="text/css">
+			div {
+				width: 100px;
+				height: 100px;
+				background-color: #ccc;
+				transition: width 3s, height 3s,background-color 3s;
+			}
+
+			div.on {
+				width: 400px;
+				height: 400px;
+				background-color: #f00;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div class="demo"></div>
+
+		<script>
+		$('.demo').addClass('animated fadeIn');
+/*			$('div').hover(function (){
+				$(this).addClass('on');
+			},function(){
+				$(this).removeClass('on');
+			})*/
+		</script>
+
+	</body>
+</html>

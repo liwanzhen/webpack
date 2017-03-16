@@ -1,0 +1,33 @@
+// 绑定已有帐号
+
+extends register
+
+block login-head
+	.login-head
+		.pull-left
+			.logo
+			h3 绑定大好帐号
+		.pull-right
+			a(href="")
+				button.btn.btn-default 还没帐号，去注册
+block login-content
+	form
+		.form-group
+			h3 绑定已有帐号
+		.form-group
+			input.forl-control(type="user",name="account",placeholder="输入邮箱/手机号")
+			i.icon-user.icons
+		.form-group
+			input.forl-control(type="password",name="password",placeholder="输入密码")
+			i.icon-lock.icons
+		.form-group
+			.row
+				.col-xs-6
+					input.forl-control(type="text",name="verfi-code",placeholder="输入验证码")
+				.col-xs-4
+					button.btn.btn-default(type="button",name="verfi-code") 验证码
+		.alert.alert-danger.text-center(style="display:none;")
+			i.icon-alert
+			span 错误提示
+		.form-group
+			button.btn.btn-default(type="button",name="register") 绑定

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Sticky</title>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<style>
+#toTop {
+    text-decoration: none;
+    position: fixed;
+    right: 30px;
+    overflow: hidden;
+    width: 70px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: none;
+    text-indent: 100%;
+    z-index: 27;
+    transition: top 1s ease-in-out;
+    height: 100%;
+    height: -webkit-calc(100% - 77px);
+    height: -moz-calc(100% - 77px);
+    height: calc(100% - 77px);
+}
+#toTopRope {
+    overflow: hidden;
+    position: relative;
+}
+#toTopRope {
+    display: block;
+    background: url(http://static.missevan.com/system/rope.png) repeat;
+    height: 1000px;
+    height: -webkit-calc(100% - 98px);
+    height: -moz-calc(100% - 98px);
+    height: calc(100% - 98px);
+    width: 100%;
+}
+#toTopHover {
+    width: 70px;
+    height: 98px;
+    top: -2px;
+    position: relative;
+    display: block;
+}
+.main-nav {
+  height: 58px;
+  border: 1px solid #efefef;
+  border-radius: 0 0 4px 4px;
+  padding: 0 8px 0 144px;
+}
+.main-nav ul li {
+  float: left;
+  margin-right: 60px;
+  list-style: none;
+}
+.main-nav ul li a {
+  display: inline-block;
+  position: relative;
+  font-size: 14px;
+  color: #4c4c4c;
+  line-height: 56px;
+  -webkit-transition: color .2s ease,background-color .2s ease;
+  transition: color .2s ease,background-color .2s ease;
+}
+.main-nav ul li a:hover, .main-nav ul li a:focus {
+  color: #26bfbf;
+}
+.main-nav ul li a i {
+  font-size: 18px;
+}
+.main-nav ul li.active a {
+  color: #26bfbf;
+}
+</style>
+
+</head>
+<body style="font-size:12px;">
+            <div class="main-nav">
+                <ul id="myTab" class="nav-underline clearfix" style="position: relative;">
+                    <li class="active">
+                        <a href="#comment" data-toggle="tab">
+                            <i class="icons di-bubble"></i>
+                            <span href="">评论</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#collect" data-toggle="tab">
+                            <i class="icons di-star-full"></i>
+                            <span href="">收藏</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#join-circle" data-toggle="tab">
+                            <i class="icons di-heart1"></i>
+                            <span href="">圈子</span>
+                        </a>
+                    </li>
+                    <li style="position:absolute;left:0;bottom:0;height:3px;background-color:#24bfbf" class="bar"></li>
+                </ul>
+            </div>
+<div style="height: 800px;">
+        <li>0000</li>
+        <li>0000</li>
+        <li>0000</li>
+        <li>0000</li>
+        <li>0000</li>
+        <li>0000</li>
+        <li>0000</li>
+        <li>0000</li>
+        <li>0000</li>
+        <li>0000</li>
+        <li>0000</li>
+        <li>0000</li>
+        <li>0000</li>
+        <li>0000</li>
+        <li>0000</li>
+        <li>0000</li>
+</div>
+    <ul id="list" class="content">
+        <li>0000</li>
+        <li>0000</li>
+        <li>0000</li>
+        <li>0000</li>
+        <li>0000</li>
+        <li>0000</li>
+        <li>0000</li>
+        <li>0000</li>
+        <li>0000</li>
+        <li>0000</li>
+        <li>0000</li>
+        <li>0000</li>
+        <li>0000</li>
+        <li>0000</li>
+    </ul>
+    <div style="height: 500px;background: #f90;"></div>
+    <div style="height: 500px;background: #52cccc;"></div>
+    <div style="height: 500px;background: #0cf;"></div>
+    <div style="height: 500px;background: pink;"></div>
+<a href="#" id="toTop">
+    <div id="toTopRope"></div>
+    <img id="toTopHover" src="http://static.missevan.com/system/topscroll.png">
+</a>
+<script>
+        window.onload = function() {
+            /*var nav = $('.banner > .container');
+            var search = $('.form-group.search-input');
+            var navH = nav.offset().top - 50;
+            $(window).scroll(function() {
+                var scrollH = $(this).scrollTop();
+                if (navH > scrollH) {
+                    nav.css({
+                        'position': "static",
+                        "background": "#fff"
+                    });
+                    search.animate({
+                        top: 0,
+                        right: 0
+                    },100);
+                } else if (scrollH >= navH) {
+                    nav.css({
+                        'position': "fixed",
+                        "top": '50px',
+                        "background": "#ccc",
+                        "z-index": '1111'
+                    });
+                    search.animate({
+                        top:'-55px',
+                        right: "-200px"
+                    },2000);
+
+                }
+            });*/
+
+            //回到顶部
+            var toTop = $('#toTop');
+            $(window).scroll(function() {
+                var scrollH = $(this).scrollTop();
+                if(scrollH > 900) {
+                    toTop.css({'top': '0'});
+                } else {
+                    toTop.css({'top':'-1080px'});
+                }
+            });
+
+            $(toTop).click(function() {
+                toTop.css({'top':'-1080px'});
+            });
+
+            // banner导航下划线样式
+            var ul = $("ul#myTab.nav-underline"),
+                lis = ul.find('li'),
+                bar = lis.filter('.bar'),
+                active = lis.filter(function() {
+                    return $(this).hasClass('active');
+                }),
+                a_w = active.css('width'),
+                a_l = active.position().left;
+            bar.css({
+                'width': a_w,
+                'left': a_l
+            });
+            $.each(lis, function(i) {
+                $(lis[i]).mouseenter(function(e) {
+                    var _this = $(this),
+                        w = _this.width(),
+                        l = _this.position().left;
+                    bar.css({
+                        'transition': 'all .3s linear 0s',
+                        'left': l + 'px',
+                        'width': w + 'px'
+                    });
+                });
+            });
+            $('ul#myTab').mouseleave(function(e) {
+                bar.css({
+                    'width': a_w,
+                    'left': a_l + 'px'
+                });
+            });
+
+
+        }
+</script>
+
+
+</body>

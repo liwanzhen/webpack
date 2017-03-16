@@ -1,0 +1,119 @@
+// 个人中心等级基础页
+
+extends _page.base
+
+- var PAGE_TITLE = 我的等级
+
+block main
+	block user-center
+		block user-nav
+			ul#myTab.user-nav.nav.nav-tabs.row.thumbnail
+				// 我的等级导航
+				li.active.col-xs-4
+					a(href="#my-grade",data-toggle="tab") 我的等级
+				li.col-xs-4
+					a(href="#grade-desc",data-toggle="tab") 等级说明
+		block features
+			#myTabContent.tab-content.row
+				// Tab
+				// 列表
+				#my-grade.tab-pane.active.thumnnail
+					// 我的等级
+					block buttons
+					.row
+						.col-xs-2
+							img.img-circle.user-img
+						.col-xs-10
+							ul
+								li
+									p.user-name 用户名
+									span.Verify-rem （未验证用户，无法使用在线编辑器及每日任务，请完善注册信息）
+									a(href="") 现在去完善
+								li
+									ul
+										li.col-xs-3
+											span 会员等级
+											img.grade-icon
+											button.btn.btn-default LV24
+										li.col-xs-9
+											p （您还需要赠与51个
+												span.thumb-icon
+												span 才能提升到下一等级
+								li
+									.progress
+										.progress-bar(role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;")
+											span.sr-only 50%
+								li
+									ul
+										li.col-xs-3
+											span 创作等级
+											img.c-grade-icon
+											button.btn.btn-default LV32
+										li.col-xs-9
+											p （您还需要赠与51个
+												span.thumb-icon
+												span 才能提升到下一等级
+								li
+									.progress
+										.progress-bar(role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;")
+											span.sr-only 10%
+					.row
+						.col-xs-2
+							.thimbnail
+							img.img-rounded
+						.col-xs-10
+							ul
+								li
+									span 每日任务
+									p （任务是获取
+										i.icon-coin
+										span 的方式，另外成功发布一次作品可以获取500个
+										i.icon-coin
+										span )
+								li
+									span 签到
+									p （连续登录第
+										span 2
+										span 天，明天可领取
+										span 10
+										span 个
+										i.icon-coin
+										span )
+									button.pull-right.btn.btn-default 签到
+								li
+									span 签到
+									p (评论作品1次，可获得10个
+									i.icon-coin
+									span )
+									span.pull-right 6/10
+								li
+									span 分享
+									p (分享一次，可获得50个
+									i.icon-coin
+									span )
+									span.pull-right 0/2
+
+
+
+
+				block collect
+					// 等级说明
+					#grade-desc.tab-pane.thumnnail
+						.row
+							ul
+								li
+									p 用户等级规则
+								li
+									p 规则说明：
+									p 1.根据用户身份，将用户分创作者和普通用户两种，其中，成功发布过游戏的用户，自动转化为创作者。
+									p 2.普通用户使用"金币"将获得成长值，创作者则通过作品获得"赞"可增加创作者的经验值。
+									p 普通用户/创作的成长值/经验值累计到一定数量，可提升等级。等级未来会提供额外的使用权限，目前暂时未开放。
+								li 
+									span 具体规则：
+									span 普通会员
+									p 用户使用"金币"，即对作品打赏赞即可获得成长值。用户每累计打赏1个赞获得1点成长值。
+								li
+									span 创作者
+									p 导演发布的作品被打赏后。创作者即可增加"赞"，1个金币打赏增加1个赞。
+
+				block history

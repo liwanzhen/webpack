@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>animations steps</title>
+<script rel="stylesheet" src="jquery-1.11.2.min.js"></script>
+<style type="text/css">
+.sp {
+    background-image: url(img/anim-reward.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    width: 80px;
+    height: 100px;
+}
+
+.sp:hover {
+    animation:anim-sprite 1s steps(12) infinite;
+    -webkit-animation:anim-sprite 1s steps(12) infinite; /* Safari 和 Chrome */
+}
+
+@keyframes anim-sprite {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -960px 0;
+    }
+}
+
+.below {
+    margin-bottom: 135px;
+    width: 135px;
+    height: 135px;
+    -webkit-box-reflect: below 0 -webkit-linear-gradient(transparent,transparent 10%,rgba(255,255,255,.3));
+}
+
+.after {
+    background-image: url(img/success-pay.png);
+    height: 135px;
+    width: 135px;
+}
+.after:after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    height: 135px;
+    width: 135px;
+    background-image: inherit;
+    transform: rotate(180deg);
+}
+
+
+</style>
+</head>
+<body>
+
+    <div class="sp"></div>
+
+    <img class="below" src="img/success-pay.png">
+
+    <div class="after"></div>
+
+
+
+
+</body>
+</html>

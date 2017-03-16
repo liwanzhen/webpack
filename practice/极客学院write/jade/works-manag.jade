@@ -1,0 +1,143 @@
+// 作品管理页
+
+extends _page.settings
+
+block menu
+	ul#mytab.col-xs-3.nav.nav-tabs.nav-stacked
+		// 左侧菜单
+		li
+		h3 作品管理
+		li.active
+			a(href="#published",data-toggle="tab") 已发布作品
+		li
+			a(href="#drafts",data-toggle="tab") 草稿箱
+block content
+	section#myTabContent.col-xs-9.tab-content
+		// 右侧内容
+		#published.tab-pane.active
+			.sidebar
+				// 顶部菜单
+				form.pull-left
+					input(type="checkbox")
+					a(href="")
+						span 全选
+					a(href="")
+						span 删除
+
+				.pull-right
+					span 发布状态
+					.btn-group
+						button.btn.btn-default.dropdown-toggle(type="button",data-toggle="dropdown") 全部
+							span.caret
+						ul.dropdown-menu(role="menu")
+							li
+								a(href="") 已发布
+							li
+								a(href="") 审核中
+			.media
+				.media-left
+					input(type="checkbox")
+					a.thumbnail(href="")
+						img.media-object(src="")
+				.media-boby
+					a(href="")
+						p 作品名称
+					span.pull-left 状态
+					span.pull-right 状态
+			.media
+				.media-left
+					input(type="checkbox")
+					a.thumbnail(href="")
+						img.media-object(src="")
+				.media-boby
+					a(href="")
+						p 作品名称
+					span.pull-left 状态
+					span.pull-right 状态
+			.media
+				.media-left
+					input(type="checkbox")
+					a.thumbnail(href="")
+						img.media-object(src="")
+				.media-boby
+					a(href="")
+						p 作品名称
+					span.pull-left 状态
+					span.pull-right 状态
+			.media
+				.media-left
+					input(type="checkbox")
+					a.thumbnail(href="")
+						img.media-object(src="")
+				.media-boby
+					a(href="")
+						p 作品名称
+					span.pull-left 状态
+					span.pull-right 状态
+			.media
+				.media-left
+					input(type="checkbox")
+					a.thumbnail(href="")
+						img.media-object(src="")
+				.media-boby
+					a(href="")
+						p 作品名称
+					span.pull-left 状态
+					span.pull-right 状态
+	#drafts.tab-pane
+		.sidebar
+			// 顶部菜单
+			form.pull-left
+				input(type="checkbox")
+				a(href="")
+					span 全选
+		.media
+			.media-left
+				input(type="checkbox")
+				a.thumbnail(href="")
+					img.media-object(src="")
+			.media-boby
+				a(href="")
+					p 作品名称
+				span.pull-left 状态
+				span.pull-right 状态
+		.media
+			.media-left
+				input(type="checkbox")
+				a.thumbnail(href="")
+					img.media-object(src="")
+			.media-boby
+				a(href="")
+					p 作品名称
+				span.pull-left 状态
+				span.pull-right 状态
+		.media
+			.media-left
+				input(type="checkbox")
+				a.thumbnail(href="")
+					img.media-object(src="")
+			.media-boby
+				a(href="")
+					p 作品名称
+				span.pull-left 状态
+				span.pull-right 状态
+		.media
+			.media-left
+				input(type="checkbox")
+				a.thumbnail(href="")
+					img.media-object(src="")
+			.media-boby
+				a(href="")
+					p 作品名称
+				span.pull-left 状态
+				span.pull-right 状态
+		.media
+			.media-left
+				input(type="checkbox")
+				a.thumbnail(href="")
+					img.media-object(src="")
+			.media-boby
+				a(href="")
+					p 作品名称
+				span.pull-left 状态
+				span.pull-right 状态

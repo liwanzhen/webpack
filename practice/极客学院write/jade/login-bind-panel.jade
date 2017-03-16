@@ -1,0 +1,25 @@
+// 面板登录-绑定页
+
+extends login-panel
+
+block modal-body
+	.modal-body
+		img.img-circle.user-img(src="")
+		span.user-name
+		span 您正在使用
+		span.login-way 登录方式
+		form
+			block status-btn
+				.form-group
+					a(href="")
+						button.btn.btn-default(type="button",name="bind") 绑定已有帐号
+				.form-group
+					a(href="")
+						button.btn.btn-default(type="button",name="register-bind") 注册并绑定
+			block status-alert
+				.form-group
+					a(href="") 直接登录
+				.alert.alert-danger.text-center
+					i.icon-alert
+					p.status-alert 以后不可以与已有帐号绑定
+			

@@ -1,0 +1,41 @@
+// 注册页
+
+extends login
+
+block login-head
+	.login-head
+		.pull-left
+			.logo
+			h3 注册大好网站
+		.pull-right
+			a(href="")
+				button.btn.btn-default 已有帐号，去登录
+block login-content
+	form
+		.form-group
+			.row
+				.col-xs-6
+					a(href="") 邮箱注册
+				.col-xs-6
+					a(href="") 手机注册
+		.form-group
+			input.forl-control(type="user",name="account",placeholder="输入邮箱")
+			i.icon-user.icons
+		.form-group
+			input.forl-control(type="password",name="password",placeholder="设置密码")
+			i.icon-lock.icons
+		.form-group
+			.row
+				.col-xs-6
+					input.forl-control(type="text",name="verfi-code")
+				.col-xs-4
+					button.btn.btn-default(type="button",name="verfi-code") 验证码
+		.alert.alert-danger.text-center(style="display:none;")
+			i.icon-alert
+			span 错误提示
+		.form-group
+			button.btn.btn-default(type="button",name="register") 同意并注册
+		.form-group
+			a.forgot(target="_blank",href="") 忘记密码
+		.form-group
+			a(href="") 请阅读并同意《用户服务协议》

@@ -1,0 +1,30 @@
+// 第三方登录后帐号绑定页
+
+extends _page.html
+
+block body
+	.container
+		.binding
+			.logo
+			block bind-head
+				h3 绑定邮箱/手机来完善帐号您的帐号
+			block bind-desc
+				ul
+					li
+						p 帐号更安全
+					li
+						p 可以使用邮箱或手机登录
+					li
+						p 能使用大好的网站编辑器进行创作
+					li
+						p 每日任务可以获取硬币来打赏其他玩家，参与更多互动。
+			block bind-btn
+				.row
+					.col-xs-6
+						a.btn(href="")
+							i.icon-mail
+							span 绑定邮箱
+					.col-xs-6
+						a.btn(href="")
+							i.icon-mob
+							span 绑定手机

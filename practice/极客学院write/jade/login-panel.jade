@@ -1,0 +1,38 @@
+// 面板登录页
+
+extends _page.panel
+
+block modal-content
+	.modal-content
+		div(style="height:6px;border-radius:4px")
+		.modal-header
+			button.close(type="button",data-dismiss="modal",aria-hidden="true") &times;
+		block modal-body
+			.modal-body
+				form
+					.form-group
+						input.form-control(type="user",name="account",placeholder="邮箱/手机")
+						i.icon-user.icons
+					.form-group
+						input.form-control(type="password",name="password",placeholder="登录密码")
+						i.icon-lock.icons
+					.alert.alert-danger.text-center(style="display:none;")
+					.form-group
+						button.btn.btn-default(type="button",name="login") 登录
+					.form-group
+						button.btn.btn-default(type="button",name="login") 注册
+					.form-group
+						a.forgot(target="_blank",href="") 忘记密码
+					.form-group
+						p 联合登录
+					.form-group
+						a.third-party.login.QQ
+							i.icon-QQ
+							span QQ登录
+						a.third-party.login.wechat
+							i.icon-wechat
+							span 微信登录
+						a.third-party.login.weibo
+							i.icon-weibo
+							span 微博登录
+

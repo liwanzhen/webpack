@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			overflow: hidden;
+		}
+		.suipian{
+			width: 560px;
+			height: 300px;
+			margin: 100px auto;
+			border: 1px solid #000;
+			position: relative;
+			-webkit-perspective:500px;
+		}
+		.suipian .maoni p{
+			width: 80px;/*根据行列数设置宽高*/
+			height: 50px;
+			position: absolute;
+			background: url(0.jpg) no-repeat;
+			transition:all 1s ease 0s;
+		}
+		.suipian.sui .maoni p{
+			opacity: 0;
+		}
+	</style>
+	<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+	<script type="text/javascript">
+		//各参数    r:行数     	rh：行高
+		//			c:列数     	cw：列宽
+		//			pn:图片数   ft：碎片飞走动画的时间
+		//由于各种各样的原因，这破轮播行数和列数只能相等，于是r和c就合并为rc了
+		function suipian(rc,rh,cw,pn,ft,bofangshijian){
+			var nowimg = 0;
+			$(".suipian").prepend("<div class='maoni'></div>");//添加节点
+			for(var i = 0 ; i < rc*rc  ; i++){
+				$(".maoni").append("<p></p>");//添加节点
+				$(".maoni p").eq(i).css("top",parseInt(i / rc) * rh);//碎片划分的行数和行高后定位
+				$(".maoni p").eq(i).css("left",i % rc * cw);//碎片划分的列数和列宽后定位
+				$(".maoni p").eq(i).css("background-position", (i % rc * -cw) + "px " + parseInt(i / rc) * -rh +  "px");//给各个碎片相应位置的背景图
+			}
+			var timer = setInterval(suikai,bofangshijian);
+			$(".suipian").mouseenter(
+				function(){
+					clearInterval(timer);
+				}
+			);
+			$(".suipian").mouseleave(
+				function(){
+					clearInterval(timer); //设表先关
+					timer = setInterval(suikai,bofangshijian);
+				}
+			);
+			$(".suipian").click(
+				function(){
+					suikai();
+				}
+			);
+			function suikai(){
+					if(nowimg < pn-1){//图片的数量
+					nowimg++;
+				}else{
+					nowimg = 0;
+				}
+				$(".zhentu").attr("src",nowimg + ".jpg");//换图
+				$(".maoni p").css("transition","all 1s ease 0s");//给通过DOM操作进来的容器添加过渡
+				$(".suipian").addClass("sui");
+				//添加飞的方向：
+				$(".maoni p:odd").each(
+					function(){
+						$(this).css("-webkit-transform","rotateX(" + parseInt(Math.random() * 80)+ "deg) rotateY(" + parseInt(Math.random() * 80 ) + "deg) translateZ(500px)");
+					}//控制下标为奇数盒子的方向
+				);
+				$(".maoni p:even").each(
+					function(){
+						$(this).css("-webkit-transform","rotateX(" + -parseInt(Math.random() * 80)+ "deg) rotateY(" + -parseInt(Math.random() *  80) + "deg) translateZ(500px)");
+					}//控制下标为偶数盒子的方向
+				);
+				//添加延时器，盒子归位
+				setTimeout(function(){
+					$(".suipian").removeClass("sui");
+					$(".maoni p").css("transition","none");
+					$(".maoni p").css("background-image","url(" + nowimg + ".jpg)");
+					$(".maoni p").css("-webkit-transform","none");
+				},ft);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="suipian">
+		<img class="zhentu" src="0.jpg" alt="">
+	</div>
+	<script type="text/javascript">
+		$(document).ready(
+			function(){
+				suipian(10,30,56,5,1000,3000);
+			}
+		);
+	</script>
+</body>
+</html>

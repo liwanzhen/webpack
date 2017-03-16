@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Web Component</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<style>
+/* 方法一 */
+
+</style>
+</head>
+<body>
+<input type="text"/>
+<button type="submit">提交</button>
+<p class="ha"></p>
+<script>
+    var input = document.getElementsByTagName('input')[0];
+    input.value = "hello world!";
+
+    var p = document.getElementsByTagName('p')[0];
+    var button = document.getElementsByTagName('button')[0];
+    button.onclick = function () {
+        var inputValue = input.value;
+        p.innerHTML = inputValue;
+        //p.innerText = inputValue;
+    }
+
+/*一、JS中innerHTML、outerHTML、innerText 、outerText、value的区别与联系？
+jS中设置或者获取所选内容的值：
+①innerHTML :属性设置或返回该标签内的HTML。也就是从对象的起始位置到终止位置的全部内容,包括Html标签。
+②outerHTML：属性设置或返回该标签及标签内的HTML。也就是从对象的该标签起始到终止位置的全部内容,包括Html标签。
+如果要输出不含HTML标签的内容，可以使用innerHTML取得包含HTML标签的内容后，再用正则表达式去除HTML标签，
+③inneText：从起始位置到终止位置的内容，但它去除html标签。（只能在IE和chrome下使用）
+④outerText 设置(包括标签)或获取(不包括标签)对象的文本 <br><br>
+⑤value：属性可设置或返回密码域的默认值。获取文本框的值
+二、jQuery中的text()、html()和val()
+jQuery中设置或者获取所选内容的值：
+①text();设置或者获取所选元素的文本内容；
+②html();设置或者获取所选元素的内容（包括html标记）；
+③val();设置或者获取表单字段的值（前提是表单设置了value属性）；
+首先，html属性中有两个方法，一个有参，一个无参*/
+
+</script>
+</body>

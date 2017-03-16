@@ -1,0 +1,32 @@
+// 查看用户页
+
+extends _page.works
+
+block user
+	// 查看用户
+	div.user-center
+		p 签名档
+		ul.user-level
+			li
+				// 会员等级
+				a(href="")
+					img(src="")
+				a(href="")
+					button.btn.btn-default LV24
+		div.contact.pull-right
+			button.btn.btn-ddefault 发私信
+			button.btn.btn-ddefault 关注
+block signin
+	// 查看用户签到块为空
+block user-nav
+	// 查看用户 导航
+	li.active.md-12
+		a(href="#works",data-toggle="tab") 他的作品
+	// 查看用户功能块
+	block buttons
+		// 无管理按钮
+	block collect
+		//查看用户页无我的收藏块
+	block history
+		//查看用户页无我的足迹页
+

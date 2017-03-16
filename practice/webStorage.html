@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Styling the article element</title>
+  <script>document.createElement("myHero")</script>
+  <style>
+      myHero,my {
+        display:block;
+        background-color:#ddd;
+        padding: 50px;
+        font-size: 30px;
+      }
+  </style>
+</head>
+
+<body><p id="msg"></p>
+<input type="text" id="input">
+<input type="button" value="保存数据" onclick="saveStorage('input')">
+<input type="button" value="读取数据" onclick="loadStorage('msg')">
+<script>
+
+//sessionStorage
+/*  function saveStorage(id){
+    var target=document.getElementById(id);
+    var str=target.value;
+    sessionStorage.setItem("message",str);
+
+  }
+  function loadStorage(id){
+    var target=document.getElementById(id);
+    var msg=sessionStorage.getItem("message");
+    target.innerHTML=msg;
+
+  }*/
+
+// localStorage
+    function saveStorage(id){
+    var target=document.getElementById(id);
+    var str=target.value;
+    localStorage.setItem("message",str);
+
+  }
+  function loadStorage(id){
+    var target=document.getElementById(id);
+    var msg=localStorage.getItem("message");
+    target.innerHTML=msg;
+
+  }
+</script>
+
+</body>
+</html>

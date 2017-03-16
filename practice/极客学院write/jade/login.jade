@@ -1,0 +1,42 @@
+// 登录页
+
+extends _page.html
+
+block body
+	block login-head
+		.login-head
+			.pull-left
+				.logo
+				h3 登录大好网站
+			.pull-right
+				a(href="")
+					button.btn.btn-default 还没帐号，去注册
+	block login-content
+		form
+			.form-group
+				h3 登录
+			.form-group
+				input.forl-control(type="user",name="account",placeholder="邮箱/手机")
+				i.icon-user.icons
+			.form-group
+				input.forl-control(type="password",name="password",placeholder="登录密码")
+				i.icon-lock.icons
+			.alert.alert-danger.text-center(style="display:none;")
+			.form-group
+				button.btn.btn-default(type="button",name="login") 登录
+			.form-group
+				button.btn.btn-default(type="button",name="login") 注册
+			.form-group
+				a.forgot(target="_blank",href="") 忘记密码
+			.form-group
+				p 联合登录
+			.form-group
+				a.third-party.login.QQ
+					i.icon-QQ
+					span QQ登录
+				a.third-party.login.wechat
+					i.icon-wechat
+					span 微信登录
+				a.third-party.login.weibo
+					i.icon-weibo
+					span 微博登录

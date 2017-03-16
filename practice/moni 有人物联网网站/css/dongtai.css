@@ -1,0 +1,50 @@
+.jumbotron {
+    background-color: #0067ac;
+    color: #fff;
+    padding: 25px 0;
+}
+.jumbotron .container {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 0;
+}
+.jumbotron a {
+    color: #fff;
+}
+.top-left div {
+    font-size: 12px;
+}
+.top-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: right;
+}
+.jumbotron p {
+    font-size: 14px;
+}
+.sidebar li a {
+    display: block;
+    text-align: center;
+    padding: 11px 23px 11px 23px;
+    border-bottom: 2px solid #eee;
+}
+.sidebar li {
+    padding: 0 20px;
+}
+.right-content li {
+    margin: 5px 0;
+    font-size: 13px;
+    line-height: 25px;
+}
+.right-content li a {
+    color: #0067ac;
+}
+.right-content li span {
+    margin-right: 5px;
+}
